@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D103CDD6190D03330099C38D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D103CDD5190D03330099C38D /* FacebookSDK.framework */; };
+		D109846B18E38C99001EAFE9 /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = D109846A18E38C99001EAFE9 /* UIResponder+FirstResponder.m */; };
+		D109846D18E81195001EAFE9 /* confirm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D109846C18E81195001EAFE9 /* confirm@2x.png */; };
+		D109847018E8B6E8001EAFE9 /* comps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D109846F18E8B6E8001EAFE9 /* comps@2x.png */; };
+		D10AAE021862B52D005BFD7E /* closeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D10AAE011862B52D005BFD7E /* closeicon.png */; };
+		D10AAE041862C93E005BFD7E /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = D10AAE031862C93E005BFD7E /* next.png */; };
+		D10AAE061862CC46005BFD7E /* confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = D10AAE051862CC46005BFD7E /* confirm.png */; };
+		D10BFD29185EEB670095C732 /* stage3.png in Resources */ = {isa = PBXBuildFile; fileRef = D10BFD26185EEB670095C732 /* stage3.png */; };
+		D10BFD2A185EEB670095C732 /* stage2.png in Resources */ = {isa = PBXBuildFile; fileRef = D10BFD27185EEB670095C732 /* stage2.png */; };
+		D10BFD2B185EEB670095C732 /* stage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D10BFD28185EEB670095C732 /* stage1.png */; };
+		D10BFD31185FD0D30095C732 /* decisions.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D10BFD30185FD0D30095C732 /* decisions.sqlite */; };
+		D10FF5C818FF8E6E00EBD2B6 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C218FF8E6E00EBD2B6 /* icon58.png */; };
+		D10FF5C918FF8E6E00EBD2B6 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C318FF8E6E00EBD2B6 /* icon80.png */; };
+		D10FF5CA18FF8E6E00EBD2B6 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C418FF8E6E00EBD2B6 /* icon120.png */; };
+		D10FF5CB18FF8E6E00EBD2B6 /* icon@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C518FF8E6E00EBD2B6 /* icon@x2.png */; };
+		D10FF5CC18FF8E6E00EBD2B6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C618FF8E6E00EBD2B6 /* icon.png */; };
+		D10FF5CD18FF8E6E00EBD2B6 /* icon-doit.png in Resources */ = {isa = PBXBuildFile; fileRef = D10FF5C718FF8E6E00EBD2B6 /* icon-doit.png */; };
+		D126124918403399002FFB83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124818403399002FFB83 /* Foundation.framework */; };
+		D126124B18403399002FFB83 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124A18403399002FFB83 /* CoreGraphics.framework */; };
+		D126124D18403399002FFB83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124C18403399002FFB83 /* UIKit.framework */; };
+		D126124F18403399002FFB83 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124E18403399002FFB83 /* CoreData.framework */; };
+		D126125518403399002FFB83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D126125318403399002FFB83 /* InfoPlist.strings */; };
+		D126125718403399002FFB83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D126125618403399002FFB83 /* main.m */; };
+		D126125B18403399002FFB83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D126125A18403399002FFB83 /* AppDelegate.m */; };
+		D126125E18403399002FFB83 /* DecisionMaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D126125C18403399002FFB83 /* DecisionMaker.xcdatamodeld */; };
+		D126126018403399002FFB83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D126125F18403399002FFB83 /* Images.xcassets */; };
+		D126126718403399002FFB83 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126126618403399002FFB83 /* XCTest.framework */; };
+		D126126818403399002FFB83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124818403399002FFB83 /* Foundation.framework */; };
+		D126126918403399002FFB83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124C18403399002FFB83 /* UIKit.framework */; };
+		D126126A18403399002FFB83 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126124E18403399002FFB83 /* CoreData.framework */; };
+		D126127218403399002FFB83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D126127018403399002FFB83 /* InfoPlist.strings */; };
+		D126127418403399002FFB83 /* DecisionMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D126127318403399002FFB83 /* DecisionMakerTests.m */; };
+		D126127F18403887002FFB83 /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = D126127E18403887002FFB83 /* Decision.m */; };
+		D126128218403AB1002FFB83 /* Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128118403AB1002FFB83 /* Choice.m */; };
+		D126128518403FF7002FFB83 /* Factor.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128418403FF7002FFB83 /* Factor.m */; };
+		D12612881840450F002FFB83 /* DecisionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12612871840450F002FFB83 /* DecisionTableViewController.m */; };
+		D126128C184047B8002FFB83 /* CreateDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128A184047B8002FFB83 /* CreateDecisionViewController.m */; };
+		D126128D184047B8002FFB83 /* CreateDecisionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */; };
+		D15B7AD8187027AD001482F1 /* CompResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7AD7187027AD001482F1 /* CompResultViewController.m */; };
+		D15B7ADB18703352001482F1 /* CompResultCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7ADA18703352001482F1 /* CompResultCellView.m */; };
+		D17994FA1840993F00939EFB /* AddProsConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17994F81840993F00939EFB /* AddProsConsViewController.m */; };
+		D17994FB1840993F00939EFB /* AddProsConsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17994F91840993F00939EFB /* AddProsConsViewController.xib */; };
+		D17994FE1841DDEF00939EFB /* comparisonMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D17994FD1841DDEF00939EFB /* comparisonMaker.m */; };
+		D17995011841F36100939EFB /* Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = D17995001841F36100939EFB /* Comparison.m */; };
+		D17995071842B15500939EFB /* ComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17995051842B15500939EFB /* ComparisonViewController.m */; };
+		D17995081842B15500939EFB /* ComparisonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17995061842B15500939EFB /* ComparisonViewController.xib */; };
+		D179950B184EB9C000939EFB /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D179950A184EB9C000939EFB /* ResultViewController.m */; };
+		D179950E184EBC6900939EFB /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D179950D184EBC6900939EFB /* BubbleView.m */; };
+		D1799511185050CD00939EFB /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = D1799510185050CD00939EFB /* Database.m */; };
+		D17995151851738300939EFB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D17995141851738200939EFB /* libsqlite3.dylib */; };
+		D1CF619518DBAF4A00F12821 /* FactorRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF619418DBAF4A00F12821 /* FactorRankingViewController.m */; };
+		D1CF619818DBAFD600F12821 /* FactorRankingCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF619718DBAFD600F12821 /* FactorRankingCellView.m */; };
+		D1CF619B18DCF89500F12821 /* comps.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF619918DCF89500F12821 /* comps.png */; };
+		D1CF619C18DCF89500F12821 /* ranking.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF619A18DCF89500F12821 /* ranking.png */; };
+		D1CF61A718DE572900F12821 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF61A618DE572900F12821 /* ProgressView.m */; };
+		D1CF61AA18E0031D00F12821 /* EnterProsConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF61A918E0031D00F12821 /* EnterProsConsViewController.m */; };
+		D1CF61B118E0E1DB00F12821 /* conGray.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF61AF18E0E1DB00F12821 /* conGray.png */; };
+		D1CF61B218E0E1DB00F12821 /* proGray.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF61B018E0E1DB00F12821 /* proGray.png */; };
+		D1CF61B518E0E21B00F12821 /* con.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF61B318E0E21B00F12821 /* con.png */; };
+		D1CF61B618E0E21B00F12821 /* pro.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF61B418E0E21B00F12821 /* pro.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D126126B18403399002FFB83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D126123D18403398002FFB83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D126124418403398002FFB83;
+			remoteInfo = DecisionMaker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D103CDD5190D03330099C38D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		D109846918E38C99001EAFE9 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
+		D109846A18E38C99001EAFE9 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
+		D109846C18E81195001EAFE9 /* confirm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "confirm@2x.png"; sourceTree = "<group>"; };
+		D109846F18E8B6E8001EAFE9 /* comps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comps@2x.png"; sourceTree = "<group>"; };
+		D10AAE011862B52D005BFD7E /* closeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeicon.png; sourceTree = "<group>"; };
+		D10AAE031862C93E005BFD7E /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		D10AAE051862CC46005BFD7E /* confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm.png; sourceTree = "<group>"; };
+		D10BFD26185EEB670095C732 /* stage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stage3.png; sourceTree = "<group>"; };
+		D10BFD27185EEB670095C732 /* stage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stage2.png; sourceTree = "<group>"; };
+		D10BFD28185EEB670095C732 /* stage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stage1.png; sourceTree = "<group>"; };
+		D10BFD30185FD0D30095C732 /* decisions.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = decisions.sqlite; sourceTree = "<group>"; };
+		D10FF5C218FF8E6E00EBD2B6 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		D10FF5C318FF8E6E00EBD2B6 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		D10FF5C418FF8E6E00EBD2B6 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		D10FF5C518FF8E6E00EBD2B6 /* icon@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@x2.png"; sourceTree = "<group>"; };
+		D10FF5C618FF8E6E00EBD2B6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D10FF5C718FF8E6E00EBD2B6 /* icon-doit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-doit.png"; sourceTree = "<group>"; };
+		D126124518403399002FFB83 /* Doit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D126124818403399002FFB83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D126124A18403399002FFB83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D126124C18403399002FFB83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D126124E18403399002FFB83 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D126125218403399002FFB83 /* Doit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Doit-Info.plist"; sourceTree = "<group>"; };
+		D126125418403399002FFB83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D126125618403399002FFB83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D126125818403399002FFB83 /* Doit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Doit-Prefix.pch"; sourceTree = "<group>"; };
+		D126125918403399002FFB83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D126125A18403399002FFB83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D126125D18403399002FFB83 /* DecisionMaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DecisionMaker.xcdatamodel; sourceTree = "<group>"; };
+		D126125F18403399002FFB83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D126126518403399002FFB83 /* DoitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D126126618403399002FFB83 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D126126F18403399002FFB83 /* DoitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoitTests-Info.plist"; sourceTree = "<group>"; };
+		D126127118403399002FFB83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D126127318403399002FFB83 /* DecisionMakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecisionMakerTests.m; sourceTree = "<group>"; };
+		D126127D18403887002FFB83 /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Decision.h; path = Objects/Decision.h; sourceTree = "<group>"; };
+		D126127E18403887002FFB83 /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Decision.m; path = Objects/Decision.m; sourceTree = "<group>"; };
+		D126128018403AB1002FFB83 /* Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Choice.h; path = Objects/Choice.h; sourceTree = "<group>"; };
+		D126128118403AB1002FFB83 /* Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Choice.m; path = Objects/Choice.m; sourceTree = "<group>"; };
+		D126128318403FF7002FFB83 /* Factor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Factor.h; path = Objects/Factor.h; sourceTree = "<group>"; };
+		D126128418403FF7002FFB83 /* Factor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Factor.m; path = Objects/Factor.m; sourceTree = "<group>"; };
+		D12612861840450F002FFB83 /* DecisionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionTableViewController.h; sourceTree = "<group>"; };
+		D12612871840450F002FFB83 /* DecisionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionTableViewController.m; sourceTree = "<group>"; };
+		D1261289184047B8002FFB83 /* CreateDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDecisionViewController.h; sourceTree = "<group>"; };
+		D126128A184047B8002FFB83 /* CreateDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDecisionViewController.m; sourceTree = "<group>"; };
+		D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateDecisionViewController.xib; sourceTree = "<group>"; };
+		D15B7AD6187027AD001482F1 /* CompResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultViewController.h; sourceTree = "<group>"; };
+		D15B7AD7187027AD001482F1 /* CompResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompResultViewController.m; sourceTree = "<group>"; };
+		D15B7AD918703352001482F1 /* CompResultCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultCellView.h; sourceTree = "<group>"; };
+		D15B7ADA18703352001482F1 /* CompResultCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompResultCellView.m; sourceTree = "<group>"; };
+		D15B7ADD1870388E001482F1 /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = global.h; path = DecisionMaker/global.h; sourceTree = "<group>"; };
+		D17994F71840993F00939EFB /* AddProsConsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProsConsViewController.h; sourceTree = "<group>"; };
+		D17994F81840993F00939EFB /* AddProsConsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProsConsViewController.m; sourceTree = "<group>"; };
+		D17994F91840993F00939EFB /* AddProsConsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddProsConsViewController.xib; sourceTree = "<group>"; };
+		D17994FC1841DDEF00939EFB /* comparisonMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comparisonMaker.h; path = Objects/comparisonMaker.h; sourceTree = "<group>"; };
+		D17994FD1841DDEF00939EFB /* comparisonMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comparisonMaker.m; path = Objects/comparisonMaker.m; sourceTree = "<group>"; };
+		D17994FF1841F36100939EFB /* Comparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comparison.h; path = Objects/Comparison.h; sourceTree = "<group>"; };
+		D17995001841F36100939EFB /* Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comparison.m; path = Objects/Comparison.m; sourceTree = "<group>"; };
+		D17995041842B15500939EFB /* ComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparisonViewController.h; sourceTree = "<group>"; };
+		D17995051842B15500939EFB /* ComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparisonViewController.m; sourceTree = "<group>"; };
+		D17995061842B15500939EFB /* ComparisonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComparisonViewController.xib; sourceTree = "<group>"; };
+		D1799509184EB9C000939EFB /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		D179950A184EB9C000939EFB /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		D179950C184EBC6900939EFB /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
+		D179950D184EBC6900939EFB /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
+		D179950F185050CD00939EFB /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		D1799510185050CD00939EFB /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		D17995141851738200939EFB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D1CF619318DBAF4A00F12821 /* FactorRankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactorRankingViewController.h; sourceTree = "<group>"; };
+		D1CF619418DBAF4A00F12821 /* FactorRankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactorRankingViewController.m; sourceTree = "<group>"; };
+		D1CF619618DBAFD600F12821 /* FactorRankingCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactorRankingCellView.h; sourceTree = "<group>"; };
+		D1CF619718DBAFD600F12821 /* FactorRankingCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactorRankingCellView.m; sourceTree = "<group>"; };
+		D1CF619918DCF89500F12821 /* comps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comps.png; sourceTree = "<group>"; };
+		D1CF619A18DCF89500F12821 /* ranking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking.png; sourceTree = "<group>"; };
+		D1CF61A518DE572800F12821 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		D1CF61A618DE572900F12821 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		D1CF61A818E0031D00F12821 /* EnterProsConsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterProsConsViewController.h; sourceTree = "<group>"; };
+		D1CF61A918E0031D00F12821 /* EnterProsConsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterProsConsViewController.m; sourceTree = "<group>"; };
+		D1CF61AF18E0E1DB00F12821 /* conGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conGray.png; sourceTree = "<group>"; };
+		D1CF61B018E0E1DB00F12821 /* proGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = proGray.png; sourceTree = "<group>"; };
+		D1CF61B318E0E21B00F12821 /* con.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = con.png; sourceTree = "<group>"; };
+		D1CF61B418E0E21B00F12821 /* pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D126124218403398002FFB83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D17995151851738300939EFB /* libsqlite3.dylib in Frameworks */,
+				D126124B18403399002FFB83 /* CoreGraphics.framework in Frameworks */,
+				D126124F18403399002FFB83 /* CoreData.framework in Frameworks */,
+				D126124D18403399002FFB83 /* UIKit.framework in Frameworks */,
+				D126124918403399002FFB83 /* Foundation.framework in Frameworks */,
+				D103CDD6190D03330099C38D /* FacebookSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D126126218403399002FFB83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D126126718403399002FFB83 /* XCTest.framework in Frameworks */,
+				D126126A18403399002FFB83 /* CoreData.framework in Frameworks */,
+				D126126918403399002FFB83 /* UIKit.framework in Frameworks */,
+				D126126818403399002FFB83 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D109846E18E8B64F001EAFE9 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				D1CF61B318E0E21B00F12821 /* con.png */,
+				D1CF61B418E0E21B00F12821 /* pro.png */,
+				D1CF61AF18E0E1DB00F12821 /* conGray.png */,
+				D1CF61B018E0E1DB00F12821 /* proGray.png */,
+				D1CF619918DCF89500F12821 /* comps.png */,
+				D109846F18E8B6E8001EAFE9 /* comps@2x.png */,
+				D1CF619A18DCF89500F12821 /* ranking.png */,
+				D10AAE051862CC46005BFD7E /* confirm.png */,
+				D109846C18E81195001EAFE9 /* confirm@2x.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		D126123C18403398002FFB83 = {
+			isa = PBXGroup;
+			children = (
+				D15B7ADD1870388E001482F1 /* global.h */,
+				D126125018403399002FFB83 /* Doit */,
+				D126126D18403399002FFB83 /* DecisionMakerTests */,
+				D126124718403399002FFB83 /* Frameworks */,
+				D126124618403399002FFB83 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D126124618403399002FFB83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D126124518403399002FFB83 /* Doit.app */,
+				D126126518403399002FFB83 /* DoitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D126124718403399002FFB83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D103CDD5190D03330099C38D /* FacebookSDK.framework */,
+				D17995141851738200939EFB /* libsqlite3.dylib */,
+				D126124818403399002FFB83 /* Foundation.framework */,
+				D126124A18403399002FFB83 /* CoreGraphics.framework */,
+				D126124C18403399002FFB83 /* UIKit.framework */,
+				D126124E18403399002FFB83 /* CoreData.framework */,
+				D126126618403399002FFB83 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D126125018403399002FFB83 /* Doit */ = {
+			isa = PBXGroup;
+			children = (
+				D109846918E38C99001EAFE9 /* UIResponder+FirstResponder.h */,
+				D109846A18E38C99001EAFE9 /* UIResponder+FirstResponder.m */,
+				D126127D18403887002FFB83 /* Decision.h */,
+				D126127E18403887002FFB83 /* Decision.m */,
+				D126128018403AB1002FFB83 /* Choice.h */,
+				D126128118403AB1002FFB83 /* Choice.m */,
+				D126128318403FF7002FFB83 /* Factor.h */,
+				D126128418403FF7002FFB83 /* Factor.m */,
+				D17994FF1841F36100939EFB /* Comparison.h */,
+				D17995001841F36100939EFB /* Comparison.m */,
+				D179950F185050CD00939EFB /* Database.h */,
+				D1799510185050CD00939EFB /* Database.m */,
+				D126125918403399002FFB83 /* AppDelegate.h */,
+				D126125A18403399002FFB83 /* AppDelegate.m */,
+				D12612861840450F002FFB83 /* DecisionTableViewController.h */,
+				D12612871840450F002FFB83 /* DecisionTableViewController.m */,
+				D1261289184047B8002FFB83 /* CreateDecisionViewController.h */,
+				D126128A184047B8002FFB83 /* CreateDecisionViewController.m */,
+				D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */,
+				D17994F71840993F00939EFB /* AddProsConsViewController.h */,
+				D17994F81840993F00939EFB /* AddProsConsViewController.m */,
+				D17994F91840993F00939EFB /* AddProsConsViewController.xib */,
+				D1CF61A818E0031D00F12821 /* EnterProsConsViewController.h */,
+				D1CF61A918E0031D00F12821 /* EnterProsConsViewController.m */,
+				D179950C184EBC6900939EFB /* BubbleView.h */,
+				D179950D184EBC6900939EFB /* BubbleView.m */,
+				D17994FC1841DDEF00939EFB /* comparisonMaker.h */,
+				D17994FD1841DDEF00939EFB /* comparisonMaker.m */,
+				D1CF61A518DE572800F12821 /* ProgressView.h */,
+				D1CF61A618DE572900F12821 /* ProgressView.m */,
+				D17995041842B15500939EFB /* ComparisonViewController.h */,
+				D17995051842B15500939EFB /* ComparisonViewController.m */,
+				D17995061842B15500939EFB /* ComparisonViewController.xib */,
+				D1799509184EB9C000939EFB /* ResultViewController.h */,
+				D179950A184EB9C000939EFB /* ResultViewController.m */,
+				D15B7AD6187027AD001482F1 /* CompResultViewController.h */,
+				D15B7AD7187027AD001482F1 /* CompResultViewController.m */,
+				D1CF619318DBAF4A00F12821 /* FactorRankingViewController.h */,
+				D1CF619418DBAF4A00F12821 /* FactorRankingViewController.m */,
+				D15B7AD918703352001482F1 /* CompResultCellView.h */,
+				D15B7ADA18703352001482F1 /* CompResultCellView.m */,
+				D1CF619618DBAFD600F12821 /* FactorRankingCellView.h */,
+				D1CF619718DBAFD600F12821 /* FactorRankingCellView.m */,
+				D126125F18403399002FFB83 /* Images.xcassets */,
+				D126125C18403399002FFB83 /* DecisionMaker.xcdatamodeld */,
+				D10BFD30185FD0D30095C732 /* decisions.sqlite */,
+				D126125118403399002FFB83 /* Supporting Files */,
+			);
+			name = Doit;
+			path = DecisionMaker;
+			sourceTree = "<group>";
+		};
+		D126125118403399002FFB83 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D109846E18E8B64F001EAFE9 /* Icons */,
+				D10FF5C218FF8E6E00EBD2B6 /* icon58.png */,
+				D10FF5C318FF8E6E00EBD2B6 /* icon80.png */,
+				D10FF5C418FF8E6E00EBD2B6 /* icon120.png */,
+				D10FF5C518FF8E6E00EBD2B6 /* icon@x2.png */,
+				D10FF5C618FF8E6E00EBD2B6 /* icon.png */,
+				D10FF5C718FF8E6E00EBD2B6 /* icon-doit.png */,
+				D10AAE031862C93E005BFD7E /* next.png */,
+				D10AAE011862B52D005BFD7E /* closeicon.png */,
+				D10BFD26185EEB670095C732 /* stage3.png */,
+				D10BFD27185EEB670095C732 /* stage2.png */,
+				D10BFD28185EEB670095C732 /* stage1.png */,
+				D126125218403399002FFB83 /* Doit-Info.plist */,
+				D126125318403399002FFB83 /* InfoPlist.strings */,
+				D126125618403399002FFB83 /* main.m */,
+				D126125818403399002FFB83 /* Doit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D126126D18403399002FFB83 /* DecisionMakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D126127318403399002FFB83 /* DecisionMakerTests.m */,
+				D126126E18403399002FFB83 /* Supporting Files */,
+			);
+			path = DecisionMakerTests;
+			sourceTree = "<group>";
+		};
+		D126126E18403399002FFB83 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D126126F18403399002FFB83 /* DoitTests-Info.plist */,
+				D126127018403399002FFB83 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D126124418403398002FFB83 /* Doit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "Doit" */;
+			buildPhases = (
+				D126124118403398002FFB83 /* Sources */,
+				D126124218403398002FFB83 /* Frameworks */,
+				D126124318403398002FFB83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Doit;
+			productName = DecisionMaker;
+			productReference = D126124518403399002FFB83 /* Doit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D126126418403399002FFB83 /* DoitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "DoitTests" */;
+			buildPhases = (
+				D126126118403399002FFB83 /* Sources */,
+				D126126218403399002FFB83 /* Frameworks */,
+				D126126318403399002FFB83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D126126C18403399002FFB83 /* PBXTargetDependency */,
+			);
+			name = DoitTests;
+			productName = DecisionMakerTests;
+			productReference = D126126518403399002FFB83 /* DoitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D126123D18403398002FFB83 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Siyao Xie";
+				TargetAttributes = {
+					D126126418403399002FFB83 = {
+						TestTargetID = D126124418403398002FFB83;
+					};
+				};
+			};
+			buildConfigurationList = D126124018403398002FFB83 /* Build configuration list for PBXProject "Doit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D126123C18403398002FFB83;
+			productRefGroup = D126124618403399002FFB83 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D126124418403398002FFB83 /* Doit */,
+				D126126418403399002FFB83 /* DoitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D126124318403398002FFB83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D10BFD31185FD0D30095C732 /* decisions.sqlite in Resources */,
+				D126125518403399002FFB83 /* InfoPlist.strings in Resources */,
+				D10FF5CA18FF8E6E00EBD2B6 /* icon120.png in Resources */,
+				D1CF61B518E0E21B00F12821 /* con.png in Resources */,
+				D10AAE061862CC46005BFD7E /* confirm.png in Resources */,
+				D10FF5CD18FF8E6E00EBD2B6 /* icon-doit.png in Resources */,
+				D109847018E8B6E8001EAFE9 /* comps@2x.png in Resources */,
+				D10FF5CC18FF8E6E00EBD2B6 /* icon.png in Resources */,
+				D17994FB1840993F00939EFB /* AddProsConsViewController.xib in Resources */,
+				D10AAE021862B52D005BFD7E /* closeicon.png in Resources */,
+				D10BFD29185EEB670095C732 /* stage3.png in Resources */,
+				D1CF619C18DCF89500F12821 /* ranking.png in Resources */,
+				D10BFD2A185EEB670095C732 /* stage2.png in Resources */,
+				D1CF619B18DCF89500F12821 /* comps.png in Resources */,
+				D10FF5C918FF8E6E00EBD2B6 /* icon80.png in Resources */,
+				D10FF5C818FF8E6E00EBD2B6 /* icon58.png in Resources */,
+				D126126018403399002FFB83 /* Images.xcassets in Resources */,
+				D126128D184047B8002FFB83 /* CreateDecisionViewController.xib in Resources */,
+				D10BFD2B185EEB670095C732 /* stage1.png in Resources */,
+				D1CF61B118E0E1DB00F12821 /* conGray.png in Resources */,
+				D109846D18E81195001EAFE9 /* confirm@2x.png in Resources */,
+				D17995081842B15500939EFB /* ComparisonViewController.xib in Resources */,
+				D10AAE041862C93E005BFD7E /* next.png in Resources */,
+				D1CF61B218E0E1DB00F12821 /* proGray.png in Resources */,
+				D1CF61B618E0E21B00F12821 /* pro.png in Resources */,
+				D10FF5CB18FF8E6E00EBD2B6 /* icon@x2.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D126126318403399002FFB83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D126127218403399002FFB83 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D126124118403398002FFB83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1CF619518DBAF4A00F12821 /* FactorRankingViewController.m in Sources */,
+				D1CF61A718DE572900F12821 /* ProgressView.m in Sources */,
+				D126125B18403399002FFB83 /* AppDelegate.m in Sources */,
+				D1799511185050CD00939EFB /* Database.m in Sources */,
+				D126125718403399002FFB83 /* main.m in Sources */,
+				D1CF619818DBAFD600F12821 /* FactorRankingCellView.m in Sources */,
+				D17994FA1840993F00939EFB /* AddProsConsViewController.m in Sources */,
+				D17995071842B15500939EFB /* ComparisonViewController.m in Sources */,
+				D126128C184047B8002FFB83 /* CreateDecisionViewController.m in Sources */,
+				D12612881840450F002FFB83 /* DecisionTableViewController.m in Sources */,
+				D109846B18E38C99001EAFE9 /* UIResponder+FirstResponder.m in Sources */,
+				D17994FE1841DDEF00939EFB /* comparisonMaker.m in Sources */,
+				D1CF61AA18E0031D00F12821 /* EnterProsConsViewController.m in Sources */,
+				D126128518403FF7002FFB83 /* Factor.m in Sources */,
+				D15B7ADB18703352001482F1 /* CompResultCellView.m in Sources */,
+				D179950E184EBC6900939EFB /* BubbleView.m in Sources */,
+				D126125E18403399002FFB83 /* DecisionMaker.xcdatamodeld in Sources */,
+				D15B7AD8187027AD001482F1 /* CompResultViewController.m in Sources */,
+				D17995011841F36100939EFB /* Comparison.m in Sources */,
+				D126128218403AB1002FFB83 /* Choice.m in Sources */,
+				D126127F18403887002FFB83 /* Decision.m in Sources */,
+				D179950B184EB9C000939EFB /* ResultViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D126126118403399002FFB83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D126127418403399002FFB83 /* DecisionMakerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D126126C18403399002FFB83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D126124418403398002FFB83 /* Doit */;
+			targetProxy = D126126B18403399002FFB83 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D126125318403399002FFB83 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D126125418403399002FFB83 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D126127018403399002FFB83 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D126127118403399002FFB83 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D126127518403399002FFB83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D126127618403399002FFB83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D126127818403399002FFB83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/siyao1030/Downloads/DecisionMaker-master/DecisionMaker",
+					/Users/siyao1030/Documents/FacebookSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
+				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Doit;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D126127918403399002FFB83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/siyao1030/Downloads/DecisionMaker-master/DecisionMaker",
+					/Users/siyao1030/Documents/FacebookSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
+				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Doit;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D126127B18403399002FFB83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DecisionMaker.app/DecisionMaker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DecisionMaker/DecisionMaker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DecisionMakerTests/DoitTests-Info.plist";
+				PRODUCT_NAME = DoitTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D126127C18403399002FFB83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DecisionMaker.app/DecisionMaker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DecisionMaker/DecisionMaker-Prefix.pch";
+				INFOPLIST_FILE = "DecisionMakerTests/DoitTests-Info.plist";
+				PRODUCT_NAME = DoitTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D126124018403398002FFB83 /* Build configuration list for PBXProject "Doit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D126127518403399002FFB83 /* Debug */,
+				D126127618403399002FFB83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "Doit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D126127818403399002FFB83 /* Debug */,
+				D126127918403399002FFB83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "DoitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D126127B18403399002FFB83 /* Debug */,
+				D126127C18403399002FFB83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D126125C18403399002FFB83 /* DecisionMaker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D126125D18403399002FFB83 /* DecisionMaker.xcdatamodel */,
+			);
+			currentVersion = D126125D18403399002FFB83 /* DecisionMaker.xcdatamodel */;
+			path = DecisionMaker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D126123D18403398002FFB83 /* Project object */;
+}
