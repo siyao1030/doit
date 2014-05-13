@@ -22,7 +22,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 
-
+@property (strong, nonatomic) NSDictionary *refererAppLink;
 @property UINavigationController *navController;
 
 

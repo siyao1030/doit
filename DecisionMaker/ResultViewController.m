@@ -76,13 +76,21 @@
     
     
     self.analysisButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.analysisButton setFrame:CGRectMake((self.view.frame.size.width-88)/2, self.view.frame.size.height-88-40, 88, 40)];
+    [self.analysisButton setFrame:CGRectMake(50, self.view.frame.size.height-88-40, 88, 40)];
     [self.analysisButton setTitle:@"See Why" forState:UIControlStateNormal];
     [self.analysisButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue"  size: 20]];
     [self.analysisButton setTintColor:redOpaque];
     //[self.analysisButton setBackgroundImage:[UIImage imageNamed:@"confirm.png"] forState:UIControlStateNormal];
     [self.analysisButton addTarget:self action:@selector(seeAnalysis) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.analysisButton];
+    
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.shareButton setFrame:CGRectMake(self.view.frame.size.width-88-50, self.view.frame.size.height-88-40, 88, 40)];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [self.shareButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue"  size: 20]];
+    [self.shareButton setTintColor:redOpaque];
+    [self.shareButton addTarget:self action:@selector(shareToFB) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.shareButton];
     
     
     
@@ -122,8 +130,74 @@
     [self.navigationItem setLeftBarButtonItem:decideAgainButton animated:YES];
     
     
+    
     return self;
 }
+
+- (UIImage*)captureView
+{
+    
+    CALayer *layer = [[UIApplication sharedApplication] keyWindow].layer;
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [layer renderInContext:context];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+
+
+//------------------Sharing a photo using the Share Dialog ------------------
+
+
+
+-(void)shareToFB
+{
+    self.screenshot = [self captureView];
+    //UIImageWriteToSavedPhotosAlbum(self.screenshot, nil, nil, nil);
+    
+    // If the Facebook app is installed and we can present the share dialog
+    if([FBDialogs canPresentShareDialogWithPhotos]) {
+        NSLog(@"canPresent");
+        // Retrieve a picture from the device's photo library
+        /*
+         NOTE: SDK Image size limits are 480x480px minimum resolution to 12MB maximum file size.
+         In this app we're not making sure that our image is within those limits but you should.
+         Error code for images that go below or above the size limits is 102.
+         */
+        
+        
+        FBPhotoParams *params = [[FBPhotoParams alloc] init];
+        
+        params.photos = @[self.screenshot];
+        
+        [FBDialogs presentShareDialogWithPhotoParams:params
+                                         clientState:nil
+                                             handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                                 if (error) {
+                                                     NSLog(@"Error: %@", error.description);
+                                                 } else {
+                                                     NSLog(@"Success!");
+                                                 }
+                                             }];
+         
+         
+
+        
+    } else {
+        //The user doesn't have the Facebook for iOS app installed, so we can't present the Share Dialog
+        /*Fallback: You have two options
+         1. Share the photo as a Custom Story using a "share a photo" Open Graph action, and publish it using API calls.
+         See our Custom Stories tutorial: https://developers.facebook.com/docs/ios/open-graph
+         2. Upload the photo making a requestForUploadPhoto
+         See the reference: https://developers.facebook.com/docs/reference/ios/current/class/FBRequest/#requestForUploadPhoto:
+         */
+    }
+
+}
+
 
 -(void)seeAnalysis
 {
@@ -290,19 +364,17 @@
 
 -(void)decideAgain
 {
-    NSLog(@"decide again %d", self.decision.comparisons.count);
     
     [self.decision resetStats];
-    NSLog(@"after resetStats %d", self.decision.comparisons.count);
     
     [[self.navigationController.viewControllers objectAtIndex:3] reload];
-     NSLog(@"after reload %d", self.decision.comparisons.count);
     [self.navigationController popViewControllerAnimated:YES];
-     NSLog(@"after pop view %d", self.decision.comparisons.count);
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
 	// Do any additional setup after loading the view.
 }
 

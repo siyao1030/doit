@@ -12,6 +12,7 @@
 #import "Database.h"
 #import "CompResultViewController.h"
 #import "FactorRankingViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ResultViewController : UIViewController
 
@@ -38,7 +39,9 @@
 @property UIButton * recurseButton;
 @property UIButton * resetButton;
 @property UIButton * convergeButton;
+@property UIButton * shareButton;
 
+@property UIImage * screenshot;
 
 -(id)initWithDecision:(Decision *)decision;
 
