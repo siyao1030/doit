@@ -15,14 +15,14 @@
     self.title = title;
     self.choices = [[NSMutableArray alloc]initWithObjects:choice1, choice2,nil];
     self.comparisons = [[NSMutableArray alloc]init];
-    self.Ascore = 0.0;
-    self.Bscore = 0.0;
+    //self.Ascore = 0.0;
+    //self.Bscore = 0.0;
     self.AcontributionScore = 0.0;
     self.BcontributionScore = 0.0;
     self.Arate = 0.0;
     self.Brate = 0.0;
-    self.AResult = 0;
-    self.BResult = 0;
+    //self.AResult = 0;
+    //self.BResult = 0;
     self.round = 0;
     self.rowid = -1;
     self.numOfCompsDone = 0;
@@ -31,22 +31,44 @@
 
 -(void)resetStats
 {
-    self.Ascore = 0;
-    self.Bscore = 0;
-    self.AcontributionScore = 0.0;
-    self.BcontributionScore = 0.0;
-    self.round = 1;
-    self.numOfCompsDone = 0;
+    self.tempDecision = [self copy];
+    self.tempDecision .AcontributionScore = 0.0;
+    self.tempDecision .BcontributionScore = 0.0;
+    self.tempDecision .round = 1;
+    self.tempDecision .numOfCompsDone = 0;
     
-    
-    for (Comparison * comp in self.comparisons)
+    for (Comparison * comp in self.tempDecision .comparisons)
     {
         [comp resetStats];
     }
     
     
-    [self.choices[0] resetStats];
-    [self.choices[1] resetStats];
+    [(Choice *)self.tempDecision.choices[0] resetStats];
+    [(Choice *)self.tempDecision.choices[1] resetStats];
+    
+    
+    
+    [self.history addObject:[self copy]];
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    Decision *copy = [[Decision alloc] init];
+    copy.title = [self.title copyWithZone:zone];
+    copy.choices = [self.choices copyWithZone:zone];
+    copy.comparisons = [self.comparisons copyWithZone:zone];
+    
+    copy.AcontributionScore = self.AcontributionScore;
+    copy.BcontributionScore = self.BcontributionScore;
+    copy.Arate = self.Arate;
+    copy.Brate = self.Brate;
+    copy.title = [self.title copyWithZone:zone];
+    
+    copy.round = self.round;
+    copy.rowid = self.rowid;
+    copy.numOfCompsDone = self.numOfCompsDone;
+    
+    return copy;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -54,12 +76,12 @@
     [aCoder encodeObject:self.title forKey:@"title"];
     [aCoder encodeObject:self.choices forKey:@"choices"];
     [aCoder encodeObject:self.comparisons forKey:@"comparisons"];
-    [aCoder encodeFloat:self.Ascore forKey:@"Ascore"];
-    [aCoder encodeFloat:self.Bscore forKey:@"Bscore"];
+    //[aCoder encodeFloat:self.Ascore forKey:@"Ascore"];
+    //[aCoder encodeFloat:self.Bscore forKey:@"Bscore"];
     [aCoder encodeFloat:self.Arate forKey:@"Arate"];
     [aCoder encodeFloat:self.Brate forKey:@"Brate"];
-    [aCoder encodeInt:self.AResult forKey:@"AResult"];
-    [aCoder encodeInt:self.BResult forKey:@"BResult"];
+    //[aCoder encodeInt:self.AResult forKey:@"AResult"];
+    //[aCoder encodeInt:self.BResult forKey:@"BResult"];
     [aCoder encodeInt:self.stage forKey:@"stage"];
     [aCoder encodeInt:self.round forKey:@"round"];
     [aCoder encodeInt:self.numOfCompsDone forKey:@"numOfCompsDone"];
@@ -73,12 +95,12 @@
         self.title = [aDecoder decodeObjectForKey:@"title"];
         self.choices = [aDecoder decodeObjectForKey:@"choices"];
         self.comparisons = [aDecoder decodeObjectForKey:@"comparisons"];
-        self.Ascore = [aDecoder decodeFloatForKey:@"Ascore"];
-        self.Bscore = [aDecoder decodeFloatForKey:@"Bscore"];
+        //self.Ascore = [aDecoder decodeFloatForKey:@"Ascore"];
+        //self.Bscore = [aDecoder decodeFloatForKey:@"Bscore"];
         self.Arate = [aDecoder decodeFloatForKey:@"Arate"];
         self.Brate = [aDecoder decodeFloatForKey:@"Brate"];
-        self.AResult = [aDecoder decodeIntForKey:@"AResult"];
-        self.BResult = [aDecoder decodeIntForKey:@"BResult"];
+        //self.AResult = [aDecoder decodeIntForKey:@"AResult"];
+        //self.BResult = [aDecoder decodeIntForKey:@"BResult"];
         self.stage = [aDecoder decodeIntForKey:@"stage"];
         self.round = [aDecoder decodeIntForKey:@"round"];
         self.numOfCompsDone = [aDecoder decodeIntForKey:@"numOfCompsDone"];
@@ -92,118 +114,9 @@
     self.title = title;
 }
 
--(void)updateContributionScore
+-(void)addComparison:(Comparison *)comparison
 {
-    NSMutableArray * factorsA = [[self.choices objectAtIndex:0] factors];
-    NSMutableArray * factorsB = [[self.choices objectAtIndex:1] factors];
-    self.AcontributionScore = 0.0;
-    self.BcontributionScore = 0.0;
-    
-    float a = 0;
-    float b = 0;
-    
-    //accumulate each factor's tempScore using contributions
-
-    float ad = 0;
-    float bd = 0;
-     NSLog(@"A:");
-    for (Factor * factorA in factorsA)
-    {
-        for (NSArray * compared in factorA.comparedWith)
-        {
-            Factor * factorB = compared[0];
-            factorB.tempScore += factorA.score*(((NSNumber *)compared[1]).floatValue/factorA.totalContribution);
-            bd+=factorA.score*(((NSNumber *)compared[1]).floatValue/factorA.totalContribution);
-        }
-        
-    }
-    
-     NSLog(@"B:");
-    for (Factor * factorB in factorsB)
-    {
-        for (NSArray * compared in factorB.comparedWith)
-        {
-            Factor * factorA = compared[0];
-            factorA.tempScore += factorB.score*(((NSNumber *)compared[1]).floatValue/factorB.totalContribution);
-            ad+=factorB.score*(((NSNumber *)compared[1]).floatValue/factorB.totalContribution);
-        }
-        
-    }
-    
-    //NSLog(@"denominators: ad %f, bd %f", ad, bd);
-    //add up and update each factor's score and reset tempScore
-    NSLog(@"A:");
-    for (Factor * factor in factorsA)
-    {
-        
-        if (factor.comparedWith.count >0)
-        {
-            factor.score = factor.tempScore;
-            if ([factor isPro])
-                a+=factor.averageWeight*factor.score/ad;
-                //self.AcontributionScore += factor.score;
-            else
-                a-=factor.averageWeight*factor.score/ad;
-                //self.AcontributionScore -= factor.score;
-            factor.tempScore = 0.0;
-        }
-        //NSLog(@"average weight: %f", factor.averageWeight);
-        //NSLog(@"score: %f", factor.score);
-        //a+=factor.averageWeight*factor.score;
-        
-        
-        
-    }
-    self.AcontributionScore = a;
-    //NSLog(@"a total contribution score: %f", self.AcontributionScore);
-    
-   
-    NSLog(@"B:");
-    for (Factor * factor in factorsB)
-    {
-        if (factor.comparedWith.count >0)
-        {
-            factor.score = factor.tempScore;
-            if ([factor isPro])
-                b+=factor.averageWeight*factor.score/bd;
-                //self.BcontributionScore += factor.score;
-            else
-                b-=factor.averageWeight*factor.score/bd;
-                //self.BcontributionScore -= factor.score;
-            factor.tempScore = 0.0;
-        }
-        //NSLog(@"average weight: %f", factor.averageWeight);
-        //NSLog(@"score: %f", factor.score);
-        //b+=factor.averageWeight*factor.score;
-    }
-    self.BcontributionScore = b;
-    //NSLog(@"b total contribution score: %f", self.BcontributionScore);
-
-    
-    if (self.AcontributionScore<0 | self.BcontributionScore<0)
-    {
-        NSLog(@"normalizing neg");
-        self.AcontributionScore-=MIN(self.AcontributionScore, self.BcontributionScore);
-        self.BcontributionScore-=MIN(self.AcontributionScore, self.BcontributionScore);
-        
-    }
-    
-    
-    if (self.AcontributionScore == self.BcontributionScore)
-    {
-        self.Arate = 50;
-        self.Brate = 50;
-    }
-    else
-    {
-        self.Arate = self.AcontributionScore/(self.AcontributionScore+self.BcontributionScore);
-        self.Brate = self.BcontributionScore/(self.AcontributionScore+self.BcontributionScore);
-        
-        self.Arate = (int)(self.Arate*100+0.5);
-        self.Brate = (int)(self.Brate*100+0.5);
-        
-    }
-
+    [self.comparisons addObject:comparison];
 }
 
 
@@ -287,10 +200,10 @@
     }
     
     //add up and update each factor's score and reset tempScore
-    //NSLog(@"A:");
+    NSLog(@"A:");
     for (Factor * factor in factorsA)
     {
-        
+
         if (factor.comparedWith.count >0)
         {
             factor.score = factor.tempScore;
@@ -319,7 +232,7 @@
     self.AcontributionScore = a;
     
     
-    //NSLog(@"B:");
+    NSLog(@"B:");
     for (Factor * factor in factorsB)
     {
         if (factor.comparedWith.count >0)
@@ -388,6 +301,124 @@
 }
 
 
+/*
+ -(void)updateContributionScore
+ {
+ NSMutableArray * factorsA = [[self.choices objectAtIndex:0] factors];
+ NSMutableArray * factorsB = [[self.choices objectAtIndex:1] factors];
+ self.AcontributionScore = 0.0;
+ self.BcontributionScore = 0.0;
+ 
+ float a = 0;
+ float b = 0;
+ 
+ //accumulate each factor's tempScore using contributions
+ 
+ float ad = 0;
+ float bd = 0;
+ NSLog(@"A:");
+ for (Factor * factorA in factorsA)
+ {
+ for (NSArray * compared in factorA.comparedWith)
+ {
+ Factor * factorB = compared[0];
+ factorB.tempScore += factorA.score*(((NSNumber *)compared[1]).floatValue/factorA.totalContribution);
+ bd+=factorA.score*(((NSNumber *)compared[1]).floatValue/factorA.totalContribution);
+ }
+ 
+ }
+ 
+ NSLog(@"B:");
+ for (Factor * factorB in factorsB)
+ {
+ for (NSArray * compared in factorB.comparedWith)
+ {
+ Factor * factorA = compared[0];
+ factorA.tempScore += factorB.score*(((NSNumber *)compared[1]).floatValue/factorB.totalContribution);
+ ad+=factorB.score*(((NSNumber *)compared[1]).floatValue/factorB.totalContribution);
+ }
+ 
+ }
+ 
+ //NSLog(@"denominators: ad %f, bd %f", ad, bd);
+ //add up and update each factor's score and reset tempScore
+ NSLog(@"A:");
+ for (Factor * factor in factorsA)
+ {
+ 
+ if (factor.comparedWith.count >0)
+ {
+ factor.score = factor.tempScore;
+ if ([factor isPro])
+ a+=factor.averageWeight*factor.score/ad;
+ //self.AcontributionScore += factor.score;
+ else
+ a-=factor.averageWeight*factor.score/ad;
+ //self.AcontributionScore -= factor.score;
+ factor.tempScore = 0.0;
+ }
+ //NSLog(@"average weight: %f", factor.averageWeight);
+ //NSLog(@"score: %f", factor.score);
+ //a+=factor.averageWeight*factor.score;
+ 
+ 
+ 
+ }
+ self.AcontributionScore = a;
+ //NSLog(@"a total contribution score: %f", self.AcontributionScore);
+ 
+ 
+ NSLog(@"B:");
+ for (Factor * factor in factorsB)
+ {
+ if (factor.comparedWith.count >0)
+ {
+ factor.score = factor.tempScore;
+ if ([factor isPro])
+ b+=factor.averageWeight*factor.score/bd;
+ //self.BcontributionScore += factor.score;
+ else
+ b-=factor.averageWeight*factor.score/bd;
+ //self.BcontributionScore -= factor.score;
+ factor.tempScore = 0.0;
+ }
+ //NSLog(@"average weight: %f", factor.averageWeight);
+ //NSLog(@"score: %f", factor.score);
+ //b+=factor.averageWeight*factor.score;
+ }
+ self.BcontributionScore = b;
+ //NSLog(@"b total contribution score: %f", self.BcontributionScore);
+ 
+ 
+ if (self.AcontributionScore<0 | self.BcontributionScore<0)
+ {
+ NSLog(@"normalizing neg");
+ self.AcontributionScore-=MIN(self.AcontributionScore, self.BcontributionScore);
+ self.BcontributionScore-=MIN(self.AcontributionScore, self.BcontributionScore);
+ 
+ }
+ 
+ 
+ if (self.AcontributionScore == self.BcontributionScore)
+ {
+ self.Arate = 50;
+ self.Brate = 50;
+ }
+ else
+ {
+ self.Arate = self.AcontributionScore/(self.AcontributionScore+self.BcontributionScore);
+ self.Brate = self.BcontributionScore/(self.AcontributionScore+self.BcontributionScore);
+ 
+ self.Arate = (int)(self.Arate*100+0.5);
+ self.Brate = (int)(self.Brate*100+0.5);
+ 
+ }
+ 
+ }
+ 
+ */
+/*
+
 -(void)updateScore
 {
     int Ascore = 0;
@@ -447,7 +478,7 @@
 }
 
 
-
+*/
 
 /* summing up each comp results 
 -(void)updateScore
@@ -495,11 +526,7 @@
  
  */
 
--(void)addComparison:(Comparison *)comparison
-{
-    [self.comparisons addObject:comparison];
-}
- 
+
 
 
 @end

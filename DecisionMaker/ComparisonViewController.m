@@ -133,13 +133,12 @@
 
 -(void)reload
 {
-    self.decision.numOfCompsDone= 0;
+    self.decision = self.decision.tempDecision;
+    //self.decision.numOfCompsDone= 0;
     
     //NSMutableArray * A = [self.choiceA.factors mutableCopy];
     //NSMutableArray * B = [self.choiceB.factors mutableCopy];
 
-    // need to fixxxxx, this is right, since the comparisons are based on the first round
-    //self.decision.comparisons = [self.comparisonMaker inputOrderCompsGenerator];
     self.currentComparison = self.decision.comparisons[self.decision.numOfCompsDone];
     self.nextButton.enabled = YES;
     
@@ -232,7 +231,8 @@
         [self.alertView show];
     }
     else
-    {        
+    {
+        //*******need to keep track of how many new comparisons are added so far
         if (self.decision.numOfCompsDone == self.decision.comparisons.count) {
             if (self.decision.round == 1)
             {
@@ -240,25 +240,35 @@
                 
                 if (newComps.count!=0)
                 {
-                    [self.decision.comparisons addObjectsFromArray:newComps];
+                    for (Comparison * newComp in newComps)
+                        [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
+                    
+                    //[self.decision.comparisons addObjectsFromArray:newComps];
                     NSLog(@"pushing currentWeightComps: %lu", (unsigned long)newComps.count);
                 }
                 else
                 {
                     newComps = [self.comparisonMaker randomCompsGenerator];
-                    [self.decision.comparisons addObjectsFromArray:newComps];
+                    for (Comparison * newComp in newComps)
+                        [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
+                    //[self.decision.comparisons addObjectsFromArray:newComps];
                     self.decision.round++;
                 }
             }
             else if (self.decision.round == 2)
             {
                 NSMutableArray * newComps = [self.comparisonMaker randomCompsGenerator];
-                [self.decision.comparisons addObjectsFromArray:newComps];
+                for (Comparison * newComp in newComps)
+                    [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
+                //[self.decision.comparisons addObjectsFromArray:newComps];
             }
             else
             {
                 NSMutableArray * newComps = [self.comparisonMaker restCompsGenerator];
-                [self.decision.comparisons addObjectsFromArray:newComps];
+                for (Comparison * newComp in newComps)
+                    [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
+                
+                //[self.decision.comparisons addObjectsFromArray:newComps];
             }
             
             
@@ -280,6 +290,9 @@
     
 }
 
+
+
+/////*** once down redeciding, should overide decision with tempdecision, and save to history
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.numberOfButtons == 1)

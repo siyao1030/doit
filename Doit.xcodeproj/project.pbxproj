@@ -57,6 +57,16 @@
 		D179950E184EBC6900939EFB /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D179950D184EBC6900939EFB /* BubbleView.m */; };
 		D1799511185050CD00939EFB /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = D1799510185050CD00939EFB /* Database.m */; };
 		D17995151851738300939EFB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D17995141851738200939EFB /* libsqlite3.dylib */; };
+		D181A4D21938F38800CCE8F4 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4C91938F38800CCE8F4 /* Icon-60@2x.png */; };
+		D181A4D31938F38800CCE8F4 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CA1938F38800CCE8F4 /* Icon-76.png */; };
+		D181A4D41938F38800CCE8F4 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CB1938F38800CCE8F4 /* Icon-76@2x.png */; };
+		D181A4D51938F38800CCE8F4 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CC1938F38800CCE8F4 /* Icon-Small-40.png */; };
+		D181A4D61938F38800CCE8F4 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CD1938F38800CCE8F4 /* Icon-Small-40@2x.png */; };
+		D181A4D71938F38800CCE8F4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CE1938F38800CCE8F4 /* Icon-Small.png */; };
+		D181A4D81938F38800CCE8F4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4CF1938F38800CCE8F4 /* Icon-Small@2x.png */; };
+		D181A4D91938F38800CCE8F4 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4D01938F38800CCE8F4 /* iTunesArtwork.png */; };
+		D181A4DA1938F38800CCE8F4 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D181A4D11938F38800CCE8F4 /* iTunesArtwork@2x.png */; };
+		D181A4DE193913AE00CCE8F4 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D181A4DB193913AE00CCE8F4 /* libWeChatSDK.a */; };
 		D1CF619518DBAF4A00F12821 /* FactorRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF619418DBAF4A00F12821 /* FactorRankingViewController.m */; };
 		D1CF619818DBAFD600F12821 /* FactorRankingCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF619718DBAFD600F12821 /* FactorRankingCellView.m */; };
 		D1CF619B18DCF89500F12821 /* comps.png in Resources */ = {isa = PBXBuildFile; fileRef = D1CF619918DCF89500F12821 /* comps.png */; };
@@ -149,6 +159,18 @@
 		D179950F185050CD00939EFB /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		D1799510185050CD00939EFB /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		D17995141851738200939EFB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D181A4C91938F38800CCE8F4 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "DecisionMaker/icons/Icon-60@2x.png"; sourceTree = "<group>"; };
+		D181A4CA1938F38800CCE8F4 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "DecisionMaker/icons/Icon-76.png"; sourceTree = "<group>"; };
+		D181A4CB1938F38800CCE8F4 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76@2x.png"; path = "DecisionMaker/icons/Icon-76@2x.png"; sourceTree = "<group>"; };
+		D181A4CC1938F38800CCE8F4 /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40.png"; path = "DecisionMaker/icons/Icon-Small-40.png"; sourceTree = "<group>"; };
+		D181A4CD1938F38800CCE8F4 /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40@2x.png"; path = "DecisionMaker/icons/Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		D181A4CE1938F38800CCE8F4 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "DecisionMaker/icons/Icon-Small.png"; sourceTree = "<group>"; };
+		D181A4CF1938F38800CCE8F4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "DecisionMaker/icons/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		D181A4D01938F38800CCE8F4 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = DecisionMaker/icons/iTunesArtwork.png; sourceTree = "<group>"; };
+		D181A4D11938F38800CCE8F4 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "DecisionMaker/icons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		D181A4DB193913AE00CCE8F4 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = ../libWeChatSDK.a; sourceTree = "<group>"; };
+		D181A4DC193913AE00CCE8F4 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = ../WXApi.h; sourceTree = "<group>"; };
+		D181A4DD193913AE00CCE8F4 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = ../WXApiObject.h; sourceTree = "<group>"; };
 		D1CF619318DBAF4A00F12821 /* FactorRankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactorRankingViewController.h; sourceTree = "<group>"; };
 		D1CF619418DBAF4A00F12821 /* FactorRankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactorRankingViewController.m; sourceTree = "<group>"; };
 		D1CF619618DBAFD600F12821 /* FactorRankingCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactorRankingCellView.h; sourceTree = "<group>"; };
@@ -170,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D181A4DE193913AE00CCE8F4 /* libWeChatSDK.a in Frameworks */,
 				D17995151851738300939EFB /* libsqlite3.dylib in Frameworks */,
 				D126124B18403399002FFB83 /* CoreGraphics.framework in Frameworks */,
 				D126124F18403399002FFB83 /* CoreData.framework in Frameworks */,
@@ -212,6 +235,15 @@
 		D126123C18403398002FFB83 = {
 			isa = PBXGroup;
 			children = (
+				D181A4C91938F38800CCE8F4 /* Icon-60@2x.png */,
+				D181A4CA1938F38800CCE8F4 /* Icon-76.png */,
+				D181A4CB1938F38800CCE8F4 /* Icon-76@2x.png */,
+				D181A4CC1938F38800CCE8F4 /* Icon-Small-40.png */,
+				D181A4CD1938F38800CCE8F4 /* Icon-Small-40@2x.png */,
+				D181A4CE1938F38800CCE8F4 /* Icon-Small.png */,
+				D181A4CF1938F38800CCE8F4 /* Icon-Small@2x.png */,
+				D181A4D01938F38800CCE8F4 /* iTunesArtwork.png */,
+				D181A4D11938F38800CCE8F4 /* iTunesArtwork@2x.png */,
 				D15B7ADD1870388E001482F1 /* global.h */,
 				D126125018403399002FFB83 /* Doit */,
 				D126126D18403399002FFB83 /* DecisionMakerTests */,
@@ -246,6 +278,9 @@
 		D126125018403399002FFB83 /* Doit */ = {
 			isa = PBXGroup;
 			children = (
+				D181A4DB193913AE00CCE8F4 /* libWeChatSDK.a */,
+				D181A4DC193913AE00CCE8F4 /* WXApi.h */,
+				D181A4DD193913AE00CCE8F4 /* WXApiObject.h */,
 				D109846918E38C99001EAFE9 /* UIResponder+FirstResponder.h */,
 				D109846A18E38C99001EAFE9 /* UIResponder+FirstResponder.m */,
 				D126127D18403887002FFB83 /* Decision.h */,
@@ -415,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10BFD31185FD0D30095C732 /* decisions.sqlite in Resources */,
+				D181A4D61938F38800CCE8F4 /* Icon-Small-40@2x.png in Resources */,
 				D126125518403399002FFB83 /* InfoPlist.strings in Resources */,
 				D10FF5CA18FF8E6E00EBD2B6 /* icon120.png in Resources */,
 				D1CF61B518E0E21B00F12821 /* con.png in Resources */,
@@ -424,12 +460,20 @@
 				D10FF5CC18FF8E6E00EBD2B6 /* icon.png in Resources */,
 				D17994FB1840993F00939EFB /* AddProsConsViewController.xib in Resources */,
 				D10AAE021862B52D005BFD7E /* closeicon.png in Resources */,
+				D181A4D41938F38800CCE8F4 /* Icon-76@2x.png in Resources */,
 				D10BFD29185EEB670095C732 /* stage3.png in Resources */,
+				D181A4D51938F38800CCE8F4 /* Icon-Small-40.png in Resources */,
 				D1CF619C18DCF89500F12821 /* ranking.png in Resources */,
 				D10BFD2A185EEB670095C732 /* stage2.png in Resources */,
+				D181A4DA1938F38800CCE8F4 /* iTunesArtwork@2x.png in Resources */,
+				D181A4D71938F38800CCE8F4 /* Icon-Small.png in Resources */,
 				D1CF619B18DCF89500F12821 /* comps.png in Resources */,
+				D181A4D91938F38800CCE8F4 /* iTunesArtwork.png in Resources */,
+				D181A4D21938F38800CCE8F4 /* Icon-60@2x.png in Resources */,
 				D10FF5C918FF8E6E00EBD2B6 /* icon80.png in Resources */,
 				D10FF5C818FF8E6E00EBD2B6 /* icon58.png in Resources */,
+				D181A4D81938F38800CCE8F4 /* Icon-Small@2x.png in Resources */,
+				D181A4D31938F38800CCE8F4 /* Icon-76.png in Resources */,
 				D126126018403399002FFB83 /* Images.xcassets in Resources */,
 				D126128D184047B8002FFB83 /* CreateDecisionViewController.xib in Resources */,
 				D10BFD2B185EEB670095C732 /* stage1.png in Resources */,
@@ -606,6 +650,10 @@
 				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
 				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit",
+				);
 				PRODUCT_NAME = Doit;
 				WRAPPER_EXTENSION = app;
 			};
@@ -624,6 +672,10 @@
 				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
 				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit",
+				);
 				PRODUCT_NAME = Doit;
 				WRAPPER_EXTENSION = app;
 			};

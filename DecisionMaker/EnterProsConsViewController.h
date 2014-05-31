@@ -41,6 +41,10 @@
 @property NSMutableArray *AtxtFields;
 @property NSMutableArray *BtxtFields;
 
+@property id target;
+@property SEL action;
+
+
 
 
 -(void)setUpWithDecision:(Decision *)decision;

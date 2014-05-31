@@ -45,14 +45,12 @@
     //// label A Drawing
     CGRect textRect = CGRectMake(10, 10, 150, 16);
     [darkGreen setFill];
-    NSLog(self.comparison.factorA.title);
     [self.comparison.factorA.title drawInRect: textRect withFont: [UIFont fontWithName: @"Helvetica" size: 16] lineBreakMode: NSLineBreakByCharWrapping alignment: NSTextAlignmentLeft];
     
     
     //// label B Drawing
     CGRect text2Rect = CGRectMake(160, 10, 150, 16);
     [darkOrange setFill];
-    NSLog(self.comparison.factorB.title);
     [self.comparison.factorB.title drawInRect: text2Rect withFont: [UIFont fontWithName: @"Helvetica" size: 16] lineBreakMode: NSLineBreakByCharWrapping alignment: NSTextAlignmentRight];
     
     

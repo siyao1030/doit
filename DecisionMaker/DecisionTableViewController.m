@@ -183,6 +183,10 @@
     createView.target = self;
     createView.action = @selector(reload);
     
+    EnterProsConsViewController * prosConsView;
+    ComparisonViewController * compareView;
+    ResultViewController * resultView;
+    
     
     if (temp.stage == CreateStage)
     {
@@ -193,8 +197,11 @@
         
         [self.navigationController pushViewController:createView animated:NO];
         
-        EnterProsConsViewController * prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView.target = self.target;
+        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
+        
         [self.navigationController pushViewController:prosConsView animated:YES];
     }
     else if (temp.stage == ComparisonStage)
@@ -202,11 +209,14 @@
         
         [self.navigationController pushViewController:createView animated:NO];
         
-        EnterProsConsViewController * prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView.target = self.target;
+        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
+        
         [self.navigationController pushViewController:prosConsView animated:NO];
         
-        ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:temp];
+        compareView = [[ComparisonViewController alloc]initWithDecision:temp];
         [self.navigationController pushViewController:compareView animated:YES];
     }
     else if (temp.stage == ResultStage)
@@ -214,14 +224,17 @@
     
         [self.navigationController pushViewController:createView animated:NO];
         
-        EnterProsConsViewController * prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView = [[EnterProsConsViewController alloc]init];
+        prosConsView.target = self.target;
+        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
+        
         [self.navigationController pushViewController:prosConsView animated:NO];
         
-        ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:temp];
+        compareView = [[ComparisonViewController alloc]initWithDecision:temp];
         [self.navigationController pushViewController:compareView animated:NO];
 
-        ResultViewController * resultView= [[ResultViewController alloc]initWithDecision:temp];
+        resultView = [[ResultViewController alloc]initWithDecision:temp];
         [self.navigationController pushViewController:resultView animated:YES];
         
     }

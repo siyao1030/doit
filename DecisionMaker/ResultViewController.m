@@ -74,9 +74,16 @@
     
     [self.view addSubview:self.resultLabel];
     
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.shareButton setFrame:CGRectMake(50, self.view.frame.size.height-88-40, 88, 40)];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [self.shareButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue"  size: 20]];
+    [self.shareButton setTintColor:redOpaque];
+    [self.shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.shareButton];
     
     self.analysisButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.analysisButton setFrame:CGRectMake(50, self.view.frame.size.height-88-40, 88, 40)];
+    [self.analysisButton setFrame:CGRectMake(self.view.frame.size.width-88-50, self.view.frame.size.height-88-40, 88, 40)];
     [self.analysisButton setTitle:@"See Why" forState:UIControlStateNormal];
     [self.analysisButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue"  size: 20]];
     [self.analysisButton setTintColor:redOpaque];
@@ -84,16 +91,14 @@
     [self.analysisButton addTarget:self action:@selector(seeAnalysis) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.analysisButton];
     
-    self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.shareButton setFrame:CGRectMake(self.view.frame.size.width-88-50, self.view.frame.size.height-88-40, 88, 40)];
-    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
-    [self.shareButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue"  size: 20]];
-    [self.shareButton setTintColor:redOpaque];
-    [self.shareButton addTarget:self action:@selector(shareToFB) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.shareButton];
     
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share to:"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:@"Facebook", @"Wechat", nil];
     
-    
+    [self.actionSheet setTag:0];
     /*
     self.switchScoringButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.switchScoringButton setFrame:CGRectMake((320-88)/2, self.view.frame.size.height-100, 88, 20)];
@@ -130,7 +135,6 @@
     [self.navigationItem setLeftBarButtonItem:decideAgainButton animated:YES];
     
     
-    
     return self;
 }
 
@@ -138,24 +142,91 @@
 {
     
     CALayer *layer = [[UIApplication sharedApplication] keyWindow].layer;
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    UIGraphicsBeginImageContext(rect.size);
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    size.width *= [layer contentsScale];
+    size.height *= [layer contentsScale];
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [layer renderInContext:context];
+    // Retrieve the screenshot image
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
     return img;
 }
 
 
+-(void)share
+{
+    /*
+    //activity view
+    NSString *text = @"How to add Facebook and Twitter sharing to an iOS app";
+    NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
+    UIImage *image = self.screenshot;
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:@[text, url, image]
+     applicationActivities:nil];
+    
+    controller.excludedActivityTypes = @[UIActivityTypePrint,
+                                         UIActivityTypeCopyToPasteboard,
+                                         UIActivityTypeAssignToContact,
+                                         UIActivityTypeAddToReadingList,
+                                         UIActivityTypePostToFlickr,
+                                         UIActivityTypePostToVimeo,
+                                         UIActivityTypeAirDrop];
+    
+    
+    [self presentViewController:controller animated:YES completion:nil];
+     */
+    
+    [self.actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (actionSheet.tag) {
+        case 0:
+        {
+            switch (buttonIndex) {
+                case 0:
+                {
+                    [self shareToFB];
+                    
+                    break;
+                }
+                case 1:
+                {
+                    
+                    UIActionSheet * wechatSheet = [[UIActionSheet alloc] initWithTitle:@"Share to:"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"Cancel"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:@"Moments", @"Chat", nil];
+                    [wechatSheet setTag:1];
+                    [wechatSheet showInView:self.view];
+                    
+                    break;
+                }
+            }
+            break;
+
+        }
+        case 1:
+        {
+            [self shareToWechatWithOption:buttonIndex];
+        }
+            
+    }
+    
+}
 
 //------------------Sharing a photo using the Share Dialog ------------------
 
 
-
 -(void)shareToFB
 {
-    self.screenshot = [self captureView];
+    
     //UIImageWriteToSavedPhotosAlbum(self.screenshot, nil, nil, nil);
     
     // If the Facebook app is installed and we can present the share dialog
@@ -187,6 +258,8 @@
 
         
     } else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Opps!" message:@"You currently don't have Facebook installed." delegate:self cancelButtonTitle:@"Got it." otherButtonTitles:nil];
+        [alert show];
         //The user doesn't have the Facebook for iOS app installed, so we can't present the Share Dialog
         /*Fallback: You have two options
          1. Share the photo as a Custom Story using a "share a photo" Open Graph action, and publish it using API calls.
@@ -199,31 +272,65 @@
 }
 
 
+-(void)shareToWechatWithOption:(int)option
+{
+    
+    Choice * a = self.decision.choices[0];
+    Choice * b = self.decision.choices[1];
+
+    
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = self.decision.title;
+    if (self.decision.Arate > self.decision.Brate)
+        message.description = [NSString stringWithFormat:@"My heart belongs to %@", a.title];
+    if (self.decision.Arate < self.decision.Brate)
+        message.description = [NSString stringWithFormat:@"My heart belongs to %@", b.title];
+    else
+        message.description = @"I can't decide!";
+    [message setThumbImage:[UIImage imageNamed:@"Icon-Small.png"]];
+    
+    WXImageObject *ext = [WXImageObject object];
+    ext.imageData = UIImageJPEGRepresentation(self.screenshot, 0.0);
+    
+    message.mediaObject = ext;
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    
+    BOOL error = YES;
+    if (option == 0)
+    {
+        //share to moments
+        req.bText = NO;
+        req.message = message;
+        req.scene = WXSceneTimeline;
+        error = [WXApi sendReq:req];
+    }
+    else if (option == 1)
+    {
+        //share with contact
+        req.bText = NO;
+        req.message = message;
+        error = req.scene = WXSceneSession;
+    }
+    if (error == NO)
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Opps!" message:@"You currently don't have Wechat installed." delegate:self cancelButtonTitle:@"Got it." otherButtonTitles:nil];
+        [alert show];
+        
+    }
+}
+
 -(void)seeAnalysis
 {
-    //ResultAnalysisViewController * analysisView = [[ResultAnalysisViewController alloc]initWithDecision:self.decision];
-    //FactorRankingViewController * analysisView = [[FactorRankingViewController alloc]initWithDecision:self.decision];
-    
+
     //create the first view controller
     self.factorRankingView = [[FactorRankingViewController alloc] initWithDecision:self.decision];
-    //[self.factorRankingView.view setFrame:[[UIScreen mainScreen] bounds]];
     self.factorRankingView.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"ranking.png"] tag:1];
-    /*[self.factorRankingView.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                               pinkOpaque, NSForegroundColorAttributeName,
-                                                               [UIFont fontWithName:@"HelveticaNeue-Bold"   size:18.0], NSFontAttributeName, nil]
-                                                     forState:UIControlStateNormal];*/
     [self.factorRankingView.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 20)];
     
     //create the second view controller
     self.compResultView = [[CompResultViewController alloc] initWithDecision:self.decision];
     self.compResultView.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"comps.png"] tag:2];
-    
-    
-    /*[self.compResultView.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-     
-                                            pinkOpaque, NSForegroundColorAttributeName,
-                                            [UIFont fontWithName:@"HelveticaNeue-Bold"  size:15.0], NSFontAttributeName, nil]
-                                  forState:UIControlStateNormal];*/
     [self.compResultView.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 20)];
 
 
@@ -368,16 +475,21 @@
     [self.decision resetStats];
     
     [[self.navigationController.viewControllers objectAtIndex:3] reload];
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
 	// Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.screenshot = [self captureView];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

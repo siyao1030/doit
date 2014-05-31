@@ -13,8 +13,9 @@
 #import "CompResultViewController.h"
 #import "FactorRankingViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "WXApi.h"
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController <WXApiDelegate>
 
 @property Decision * decision;
 
@@ -42,6 +43,8 @@
 @property UIButton * shareButton;
 
 @property UIImage * screenshot;
+@property UIActionSheet * actionSheet;
+
 
 -(id)initWithDecision:(Decision *)decision;
 

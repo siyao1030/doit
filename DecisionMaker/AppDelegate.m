@@ -28,7 +28,8 @@
     
     //create the scrapbook table view, set it's nav bar title, and nav bar add button
     DecisionTableViewController *mainView = [[DecisionTableViewController alloc] initWithStyle:UITableViewStylePlain];
-
+    mainView.target = self;
+    mainView.action = @selector(isFirstTimer);
     
 
     
@@ -44,9 +45,56 @@
     // set application root view controller
     [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
+    
+    [WXApi registerApp:@"wx039962c59e8c223c" withDescription:@"Do it!"];
+    
+    
+    self.firstTimer = NO;
+    // Get current version ("Bundle Version") from the default Info.plist file
+    NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSArray *prevStartupVersions = [[NSUserDefaults standardUserDefaults] arrayForKey:@"prevStartupVersions"];
+    if (prevStartupVersions == nil)
+    {
+        // Starting up for first time with NO pre-existing installs (e.g., fresh
+        // install of some version)
+        [self firstStartAfterFreshInstall];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObject:currentVersion] forKey:@"prevStartupVersions"];
+    }
+    else
+    {
+        if (![prevStartupVersions containsObject:currentVersion])
+        {
+            // Starting up for first time with this version of the app. This
+            // means a different version of the app was alread installed once
+            // and started.
+            [self firstStartAfterUpgradeDowngrade];
+            NSMutableArray *updatedPrevStartVersions = [NSMutableArray arrayWithArray:prevStartupVersions];
+            [updatedPrevStartVersions addObject:currentVersion];
+            [[NSUserDefaults standardUserDefaults] setObject:updatedPrevStartVersions forKey:@"prevStartupVersions"];
+        }
+    }
+    
+    // Save changes to disk
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     return YES;
 }
 
+- (BOOL)isFirstTimer
+{
+    NSLog(@"called first timer, %d", self.firstTimer);
+    return self.firstTimer;
+}
+- (void)firstStartAfterFreshInstall
+{
+    NSLog(@"first start up");
+    self.firstTimer = YES;
+}
+
+- (void)firstStartAfterUpgradeDowngrade
+{
+    
+}
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url

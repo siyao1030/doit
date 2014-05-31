@@ -18,6 +18,14 @@
     return self;
 }
 
+-(id)copyWithZone:(NSZone *)zone
+{
+    Choice *copy = [[Choice alloc] init];
+    copy.title = [self.title copyWithZone:zone];
+    copy.factors = [self.factors copyWithZone:zone];
+    
+    return copy;
+}
 
 - (void)resetStats
 {

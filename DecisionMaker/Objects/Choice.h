@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Factor.h"
 
-@interface Choice : NSObject <NSCoding>
+@interface Choice : NSObject <NSCoding, NSCopying>
 
 @property NSString* title;
 @property NSMutableArray* factors;

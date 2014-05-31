@@ -31,25 +31,30 @@
 //#define pinkOpaque [UIColor colorWithRed:239.0/255.0 green:151/255.0 blue:112/255.0 alpha:1]
 
 
-@interface Decision : NSObject <NSCoding>
+@interface Decision : NSObject <NSCoding, NSCopying>
 
 
 @property NSString *title;
 @property NSMutableArray *choices;
 @property NSMutableArray *comparisons;
+@property NSMutableArray *history;
+
+
 @property float AcontributionScore;
 @property float BcontributionScore;
 
-@property float Ascore;
-@property float Bscore;
+//@property float Ascore;
+//@property float Bscore;
 @property float Arate;
 @property float Brate;
-@property int AResult;
-@property int BResult;
+//@property int AResult;
+//@property int BResult;
 @property int rowid;
 @property int stage;
 @property int round;
 @property int numOfCompsDone;
+
+@property Decision * tempDecision;
 
 - (id)initWithChoiceA:(Choice *)choice1 andChoiceB:(Choice *)choice2 andTitle:(NSString *)title;
 

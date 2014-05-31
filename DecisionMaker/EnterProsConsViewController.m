@@ -59,6 +59,7 @@
             {
                 NSLog(@"alert");
                 UIAlertView * startOverAlert = [[UIAlertView alloc]initWithTitle:@"Decision In Progress" message:@"Do you want to start over?" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Start Over", @"Resume", nil];
+                [startOverAlert setTag:1];
                 [startOverAlert show];
             }
             else
@@ -123,6 +124,7 @@
     
     
     self.alert = [[UIAlertView alloc]initWithTitle:@"Is this a Pro or a Con?" message:@"Please Select One" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Pro", @"Con", nil];
+    [self.alert setTag:0];
     
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.cancelButton setBackgroundImage:[UIImage imageNamed:@"closeicon.png"] forState:UIControlStateNormal];
@@ -213,6 +215,7 @@
     
 }
 
+
 -(void)proButtonPressed
 {
     if (self.isCon.selected) {
@@ -231,6 +234,7 @@
 
 }
 
+
 -(void)choiceAButtonPressed
 {
 
@@ -245,34 +249,37 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView == self.alert)
-    {
-        if (buttonIndex == 0)
-            self.isPro.selected = YES;
-        else if (buttonIndex == 1)
-            self.isCon.selected = YES;
-        
-        [self textFieldDidEndEditing:self.currentTxtField];
-        
-    }
-    else
-    {
-        //start over
-        if (buttonIndex == 0)
+    switch (alertView.tag) {
+        case 0:
         {
-            [self.decision resetStats];
-            self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
-            [self.navigationController pushViewController:self.compareView animated:YES];
-            [[self.navigationController.viewControllers objectAtIndex:0] reload];
+            if (buttonIndex == 0)
+                self.isPro.selected = YES;
+            else if (buttonIndex == 1)
+                self.isCon.selected = YES;
+            
+            [self textFieldDidEndEditing:self.currentTxtField];
+            break;
         }
-        //resume
-        else if (buttonIndex == 1)
+        case 1:
         {
-            self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
-            [self.navigationController pushViewController:self.compareView animated:YES];
-            [[self.navigationController.viewControllers objectAtIndex:0] reload];
+            //start over
+            if (buttonIndex == 0)
+            {
+                [self.decision resetStats];
+                self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
+                [self.navigationController pushViewController:self.compareView animated:YES];
+                [[self.navigationController.viewControllers objectAtIndex:0] reload];
+            }
+            //resume
+            else if (buttonIndex == 1)
+            {
+                self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
+                [self.navigationController pushViewController:self.compareView animated:YES];
+                [[self.navigationController.viewControllers objectAtIndex:0] reload];
+            }
+            break;
+
         }
-        
     }
     
 }
@@ -291,6 +298,7 @@
 
 - (BOOL)textFieldDidBeginEditing:(UITextField *)textField
 {
+    
     if (self.isPro == nil)
     {
         self.isPro = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -315,10 +323,13 @@
     
     // prepopulate pro con setting with the current factor
     int foundIndex = [self findIndexinTextFields:self.AtxtFields forTextField:textField];
+    
     if (foundIndex != -1 && foundIndex < self.choiceAfactors.count)
     {
         self.isPro.selected = ((Factor *)self.choiceAfactors[foundIndex]).isPro;
         self.isCon.selected = !((Factor *)self.choiceAfactors[foundIndex]).isPro;
+        [self.view addSubview:self.isPro];
+        [self.view addSubview:self.isCon];
     }
     else
     {
@@ -327,12 +338,14 @@
         {
             self.isPro.selected = ((Factor *)self.choiceBfactors[foundIndex]).isPro;
             self.isCon.selected = !((Factor *)self.choiceBfactors[foundIndex]).isPro;
+            [self.view addSubview:self.isPro];
+            [self.view addSubview:self.isCon];
         }
     }
     
     
-    [self.view addSubview:self.isPro];
-    [self.view addSubview:self.isCon];
+    //[self.view addSubview:self.isPro];
+    //[self.view addSubview:self.isCon];
     
     
     
@@ -423,6 +436,7 @@
     
     self.isPro.selected = NO;
     self.isCon.selected = NO;
+    
     
     [self.isPro removeFromSuperview];
     [self.isCon removeFromSuperview];
@@ -711,6 +725,21 @@
     self.choiceATableView.contentSize = CGSizeMake(320, 45*self.choiceAfactors.count+1);
     self.choiceBTableView.contentSize = CGSizeMake(320, 45*self.choiceBfactors.count+1);
     // Do any additional setup after loading the view from its nib.
+    
+    NSLog(@"decision no.%d",self.decision.rowid);
+
+    if (self.decision.rowid== 1)
+    {
+        NSLog(@"firstTime!");
+        UIAlertView * firstTimeMsg = [[UIAlertView alloc]initWithTitle:@"Tips"
+                                                        message:@"To make a good decision, try to be as fair and as thorough as possible when entering Pros and Cons."
+                                                        delegate:self
+                                                        cancelButtonTitle:@"Got it!"
+                                                     otherButtonTitles:nil];
+        [firstTimeMsg setTag:2];
+        [firstTimeMsg show];
+    }
+    
 }
 
 

@@ -171,9 +171,12 @@
     
     [self.target reload];
     
-    EnterProsConsViewController *addProsConsView = [[EnterProsConsViewController alloc]init];
-    [self.navigationController pushViewController:addProsConsView animated:YES];
-    [addProsConsView setUpWithDecision:self.decision];
+    EnterProsConsViewController *prosConsView = [[EnterProsConsViewController alloc]init];
+    prosConsView.target = self.target;
+    prosConsView.action = self.action;
+    
+    [self.navigationController pushViewController:prosConsView animated:YES];
+    [prosConsView setUpWithDecision:self.decision];
     
 
     

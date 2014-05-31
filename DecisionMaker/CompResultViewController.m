@@ -25,7 +25,9 @@
 
 -(id)initWithDecision:(Decision *)decision
 {
-    self.decision = decision;
+    //self.decision = decision;
+    
+    self.decision = [decision copy];
 
     
     return self;

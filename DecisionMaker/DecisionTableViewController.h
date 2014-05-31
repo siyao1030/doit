@@ -21,6 +21,9 @@
 
 @property NSMutableArray * decisions;
 
+@property id target;
+@property SEL action;
+
 -(void)addDecision:(Decision *)decision;
 
 @end

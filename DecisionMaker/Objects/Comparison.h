@@ -10,7 +10,7 @@
 #import "Factor.h"
 
 
-@interface Comparison : NSObject
+@interface Comparison : NSObject <NSCopying>
 
 @property Factor * factorA;
 @property Factor * factorB;

@@ -20,10 +20,11 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (BOOL)isFirstTimer;
 
 @property (strong, nonatomic) NSDictionary *refererAppLink;
 @property UINavigationController *navController;
+@property BOOL firstTimer;
 
 
 @end

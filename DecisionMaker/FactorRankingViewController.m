@@ -25,6 +25,8 @@
 
 - (id)initWithDecision:(Decision *)decision
 {
+    
+    NSLog(@"this decision is at stage: %d", decision.stage);
     self.decision = decision;
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"finalScore"
                                                                    ascending:NO];
