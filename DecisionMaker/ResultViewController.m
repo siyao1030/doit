@@ -278,8 +278,6 @@
     Choice * a = self.decision.choices[0];
     Choice * b = self.decision.choices[1];
 
-    
-    
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = self.decision.title;
     if (self.decision.Arate > self.decision.Brate)
@@ -472,12 +470,19 @@
 -(void)decideAgain
 {
     
+    
     [self.decision resetStats];
     
     [[self.navigationController.viewControllers objectAtIndex:3] reload];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+    //[self.navigationController popViewControllerAnimated:NO];
 
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -488,6 +493,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.screenshot = [self captureView];
+    self.decision.stage = ResultStage;
     
 }
 - (void)didReceiveMemoryWarning

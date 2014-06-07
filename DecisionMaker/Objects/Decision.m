@@ -31,13 +31,32 @@
 
 -(void)resetStats
 {
-    self.tempDecision = [self copy];
-    self.tempDecision .AcontributionScore = 0.0;
-    self.tempDecision .BcontributionScore = 0.0;
-    self.tempDecision .round = 1;
-    self.tempDecision .numOfCompsDone = 0;
+    /*
+    self.AcontributionScore = 0.0;
+    self.BcontributionScore = 0.0;
+    self.round = 1;
+    self.numOfCompsDone = 0;
     
-    for (Comparison * comp in self.tempDecision .comparisons)
+    for (Comparison * comp in self.comparisons)
+    {
+        [comp resetStats];
+    }
+    
+    
+    [(Choice *)self.choices[0] resetStats];
+    [(Choice *)self.choices[1] resetStats];
+     */
+    //self.numOfCompsDone = 0;
+
+    
+    
+    self.tempDecision = [self copy];
+    self.tempDecision.AcontributionScore = 0.0;
+    self.tempDecision.BcontributionScore = 0.0;
+    self.tempDecision.round = 1;
+    self.tempDecision.numOfCompsDone = 0;
+
+    for (Comparison * comp in self.tempDecision.comparisons)
     {
         [comp resetStats];
     }
@@ -49,6 +68,7 @@
     
     
     [self.history addObject:[self copy]];
+    
 }
 
 -(id)copyWithZone:(NSZone *)zone

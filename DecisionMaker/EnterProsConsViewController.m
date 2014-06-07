@@ -25,10 +25,23 @@
 
 -(void)didPressDecide
 {
-    
-    self.decision.stage = ComparisonStage;
     if (self.decision != nil)
     {
+        int diff = abs(self.choiceAfactors.count - self.choiceBfactors.count);
+        if (diff >= 3 || diff > MIN(self.choiceBfactors.count, self.choiceAfactors.count)) {
+            UIAlertView * tipAlert = [[UIAlertView alloc] initWithTitle:@"Tips"
+                                                                message:@"Making the number of Pros and Cons comparable between Choices improves decision quality."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Continue"
+                                                      otherButtonTitles:@"Modify", nil];
+            [tipAlert setTag:3];
+            [tipAlert show];
+        }
+        
+
+        
+        
+        self.decision.stage = ComparisonStage;
         //decicison havent been saved
         if (self.decision.rowid == -1)
         {
@@ -49,15 +62,16 @@
             self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
             [self.navigationController pushViewController:self.compareView animated:YES];
             [[self.navigationController.viewControllers objectAtIndex:0] reload];
+            [self checkfirstTime];
             self.changeFlag = NO;
         }
         // nothing has been changed
         else
         {
             // comparison in progress already
-            if (self.decision.numOfCompsDone > 0 && self.decision.numOfCompsDone < 3*MAX(self.choiceAfactors.count, self.choiceBfactors.count))
+            int maxComps = MIN(3*MAX(self.choiceAfactors.count, self.choiceBfactors.count), self.choiceAfactors.count*self.choiceBfactors.count);
+            if (self.decision.numOfCompsDone > 0 && self.decision.numOfCompsDone <= maxComps)
             {
-                NSLog(@"alert");
                 UIAlertView * startOverAlert = [[UIAlertView alloc]initWithTitle:@"Decision In Progress" message:@"Do you want to start over?" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Start Over", @"Resume", nil];
                 [startOverAlert setTag:1];
                 [startOverAlert show];
@@ -68,10 +82,13 @@
                 self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
                 [self.navigationController pushViewController:self.compareView animated:YES];
                 [[self.navigationController.viewControllers objectAtIndex:0] reload];
+                [self checkfirstTime];
 
                 
             }
         }
+        
+        
         
         // Decision table view reload
         //[[self.navigationController.viewControllers objectAtIndex:0] reload];
@@ -84,6 +101,20 @@
    // [self.navigationController pushViewController:self.compareView animated:YES];
 }
 
+-(void)checkfirstTime
+{
+    if (self.decision.rowid== 1)
+    {
+        NSLog(@"firstTime!");
+        UIAlertView * firstTimeAlert = [[UIAlertView alloc]initWithTitle:@"Tips"
+                                                                 message:@"Weigh the pairs of Pros and Cons! Ask yourself which factor matters more to you."
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Got it!"
+                                                       otherButtonTitles:nil];
+        [firstTimeAlert setTag:2];
+        [firstTimeAlert show];
+    }
+}
 -(void)setUpWithDecision:(Decision *)decision
 {
     self.decision = decision;
@@ -132,10 +163,7 @@
     [self.cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     
-    if (self.choiceAfactors.count < 1 || self.choiceBfactors.count < 1)
-        self.decideButton.enabled = NO;
-    else if (self.choiceAfactors.count > 0 || self.choiceBfactors.count > 0)
-        self.decideButton.enabled = YES;
+
     
     self.changeFlag = NO;
 }
@@ -265,20 +293,51 @@
             //start over
             if (buttonIndex == 0)
             {
+                NSLog(@"starting over");
+                self.decision.numOfCompsDone = 0;
                 [self.decision resetStats];
+                NSLog(@"comps done %d",self.decision.numOfCompsDone);
                 self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
                 [self.navigationController pushViewController:self.compareView animated:YES];
                 [[self.navigationController.viewControllers objectAtIndex:0] reload];
+                [self checkfirstTime];
             }
             //resume
             else if (buttonIndex == 1)
             {
-                self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
-                [self.navigationController pushViewController:self.compareView animated:YES];
-                [[self.navigationController.viewControllers objectAtIndex:0] reload];
+                int maxComps = MIN(3*MAX(self.choiceAfactors.count, self.choiceBfactors.count), self.choiceAfactors.count*self.choiceBfactors.count);
+                
+                if (self.decision.numOfCompsDone == maxComps)
+                {
+                    NSLog(@"resume go directly to result");
+
+                    Decision * temp = [self.decision copy];
+                    [temp resetStats];
+                    ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:temp];
+                    [self.navigationController pushViewController:compareView animated:NO];
+                    
+                    ResultViewController * resultView = [[ResultViewController alloc]initWithDecision:self.decision];
+                    [self.navigationController pushViewController:resultView animated:YES];
+                    [[self.navigationController.viewControllers objectAtIndex:0] reload];
+                }
+                else
+                {
+                    NSLog(@"resume go to comparison");
+                    self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
+                    [self.navigationController pushViewController:self.compareView animated:YES];
+                    [[self.navigationController.viewControllers objectAtIndex:0] reload];
+                    [self checkfirstTime];
+                }
             }
             break;
 
+        }
+        case 3:
+        {
+            if (buttonIndex == 1) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            
         }
     }
     
@@ -371,6 +430,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSLog(@"did end editing");
     if (![textField.text isEqualToString: @""]) {
         self.changeFlag = YES;
         
@@ -474,6 +534,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell;
@@ -558,6 +619,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         UITextField * txtField1 = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 160, 45)];
@@ -592,10 +655,13 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
     
+    
+    
     if (self.choiceAfactors.count < 1 || self.choiceBfactors.count < 1)
         self.decideButton.enabled = NO;
     else if (self.choiceAfactors.count > 0 && self.choiceBfactors.count > 0)
         self.decideButton.enabled = YES;
+    
     
 }
 
@@ -727,18 +793,15 @@
     // Do any additional setup after loading the view from its nib.
     
     NSLog(@"decision no.%d",self.decision.rowid);
+    
 
-    if (self.decision.rowid== 1)
-    {
-        NSLog(@"firstTime!");
-        UIAlertView * firstTimeMsg = [[UIAlertView alloc]initWithTitle:@"Tips"
-                                                        message:@"To make a good decision, try to be as fair and as thorough as possible when entering Pros and Cons."
-                                                        delegate:self
-                                                        cancelButtonTitle:@"Got it!"
-                                                     otherButtonTitles:nil];
-        [firstTimeMsg setTag:2];
-        [firstTimeMsg show];
-    }
+    
+    // not enough factors
+    if (self.choiceAfactors.count < 1 || self.choiceBfactors.count < 1)
+        self.decideButton.enabled = NO;
+    else if (self.choiceAfactors.count > 0 || self.choiceBfactors.count > 0)
+        self.decideButton.enabled = YES;
+    
     
 }
 
@@ -816,7 +879,7 @@
             [txt resignFirstResponder];
     }
     
-    self.changeFlag = YES;
+    //self.changeFlag = YES;
 }
 
 - (void)didReceiveMemoryWarning

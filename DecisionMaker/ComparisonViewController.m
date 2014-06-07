@@ -35,7 +35,9 @@
 
     self.decision = decision;
     
-    NSLog(@"stage when enter comparison view: %d", self.decision.stage);
+    
+
+    
     //using testing decision
     
     
@@ -403,6 +405,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
     
 }

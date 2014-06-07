@@ -34,6 +34,7 @@
 @property Choice   * listening;
 @property BOOL keyboardIsShown;
 @property UIAlertView * alert;
+@property UIAlertView * firstTimeAlert;
 @property UITextField * currentTxtField;
 
 @property NSMutableArray *choiceAfactors;

@@ -15,6 +15,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "WXApi.h"
 
+
 @interface ResultViewController : UIViewController <WXApiDelegate>
 
 @property Decision * decision;
