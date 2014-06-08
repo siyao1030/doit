@@ -51,6 +51,7 @@
     
     [self.view addSubview:self.instructionlabel];
     self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400)];
+    //self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, self.bubbles.frame.size.width, self.bubbles.frame.size.height)];
     [self.bubbles setBackgroundColor:bgColor];
     self.bubbles.target = self;
     self.bubbles.increaseA = @selector(increaseFactorA);
@@ -58,12 +59,6 @@
 
     [self.view addSubview:self.bubbles];
     
-    /*
-    self.choiceALabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 130, 130, 33)];
-    [self.view addSubview:self.choiceALabel];
-    self.choiceBLabel = [[UILabel alloc]initWithFrame:CGRectMake(170, 130, 130, 33)];
-    [self.view addSubview:self.choiceBLabel];
-    */
     //dont delete yet, need to improve
     /*
     self.prevButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -72,17 +67,8 @@
     [self.prevButton addTarget:self action:@selector(prevComparison) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.prevButton];
     */
-    /*
-    self.nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.nextButton setFrame:CGRectMake(240, self.view.frame.size.height-130, 70, 33)];
-    [self.nextButton setTitle:@"Confirm >" forState:UIControlStateNormal];
-    [self.nextButton addTarget:self action:@selector(nextComparison) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.nextButton];
-    */
-    
-    
 
-   
+
     UIImage * confirmImage = [UIImage imageNamed:@"confirm.png"];
     self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.nextButton setFrame:
@@ -91,7 +77,6 @@
     [self.nextButton addTarget:self action:@selector(nextComparison) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     
-    //internals
     self.decision = decision;
     
     self.choiceA = self.decision.choices[0];
@@ -100,10 +85,6 @@
     self.comparisonMaker = [[ComparisonMaker alloc]initWithDecision:self.decision];
     
     self.numOfCompPerRound = MAX(self.choiceA.factors.count, self.choiceB.factors.count);
-        
-    //NSMutableArray * A = [self.choiceA.factors mutableCopy];
-    //NSMutableArray * B = [self.choiceB.factors mutableCopy];
-
     
     
     if (!self.decision.comparisons || self.decision.comparisons.count == 0)

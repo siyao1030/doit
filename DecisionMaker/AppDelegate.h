@@ -13,6 +13,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property DecisionTableViewController *mainView;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -20,11 +21,9 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-- (BOOL)isFirstTimer;
 
 @property (strong, nonatomic) NSDictionary *refererAppLink;
 @property UINavigationController *navController;
-@property BOOL firstTimer;
 
 
 @end

@@ -178,9 +178,10 @@
     [self.navigationController pushViewController:prosConsView animated:YES];
     [prosConsView setUpWithDecision:self.decision];
     
-    if (self.decision.rowid== 1)
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] isEqualToString:@"Tips1"])
     {
-        NSLog(@"firstTime!");
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Tips2"] forKey:@"firstTime"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         UIAlertView * firstTimeAlert = [[UIAlertView alloc]initWithTitle:@"Tips"
                                                         message:@"To make a good decision, try to be as fair and as thorough as possible when entering Pros and Cons."
                                                        delegate:self

@@ -27,15 +27,12 @@
     self.window.backgroundColor = bgColor;
     
     //create the scrapbook table view, set it's nav bar title, and nav bar add button
-    DecisionTableViewController *mainView = [[DecisionTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    mainView.target = self;
-    mainView.action = @selector(isFirstTimer);
-    
+    self.mainView = [[DecisionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 
     
     // set nav bar root view controller
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:mainView];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.mainView];
     [self.navController.navigationBar setBackgroundColor:redTransparent];
     [self.navController.navigationBar setBarTintColor:redTransparent];
 
@@ -49,7 +46,6 @@
     [WXApi registerApp:@"wx039962c59e8c223c" withDescription:@"Do it!"];
     
     
-    self.firstTimer = NO;
     // Get current version ("Bundle Version") from the default Info.plist file
     NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSArray *prevStartupVersions = [[NSUserDefaults standardUserDefaults] arrayForKey:@"prevStartupVersions"];
@@ -80,20 +76,35 @@
     return YES;
 }
 
-- (BOOL)isFirstTimer
-{
-    NSLog(@"called first timer, %d", self.firstTimer);
-    return self.firstTimer;
-}
+
 - (void)firstStartAfterFreshInstall
 {
     NSLog(@"first start up");
-    self.firstTimer = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Tips1"] forKey:@"firstTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    Choice * a = [[Choice alloc]initWithTitle:@"Use this App"];
+    [a addToFactors:[[Factor alloc]initWithTitle:@"Rational" andIsPro:YES]];
+    [a addToFactors:[[Factor alloc]initWithTitle:@"Easy to use" andIsPro:YES]];
+    [a addToFactors:[[Factor alloc]initWithTitle:@"Need to think" andIsPro:NO]];
+    Choice * b = [[Choice alloc]initWithTitle:@"Or not"];
+    [b addToFactors:[[Factor alloc]initWithTitle:@"Think even more!" andIsPro:NO]];
+    [b addToFactors:[[Factor alloc]initWithTitle:@"But can't decide!" andIsPro:NO]];
+    
+    Decision * example = [[Decision alloc]initWithChoiceA:a andChoiceB:b andTitle:@"Example Decision"];
+    example.stage = ProsConsStage;
+    int rowid = [Database saveItemWithData:example];
+    example.rowid = rowid;
+    
+    [self.mainView reload];
+    
 }
 
 - (void)firstStartAfterUpgradeDowngrade
 {
-    
+    NSLog(@"first start up after upgrade");
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Tips1"] forKey:@"firstTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (BOOL)application:(UIApplication *)application

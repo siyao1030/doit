@@ -25,5 +25,6 @@
 @property SEL action;
 
 -(void)addDecision:(Decision *)decision;
+-(void)reload;
 
 @end

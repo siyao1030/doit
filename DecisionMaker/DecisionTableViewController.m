@@ -198,8 +198,6 @@
         [self.navigationController pushViewController:createView animated:NO];
         
         prosConsView = [[EnterProsConsViewController alloc]init];
-        prosConsView.target = self.target;
-        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
         
         [self.navigationController pushViewController:prosConsView animated:YES];
@@ -210,8 +208,6 @@
         [self.navigationController pushViewController:createView animated:NO];
         
         prosConsView = [[EnterProsConsViewController alloc]init];
-        prosConsView.target = self.target;
-        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
         
         [self.navigationController pushViewController:prosConsView animated:NO];
@@ -225,8 +221,6 @@
         [self.navigationController pushViewController:createView animated:NO];
         
         prosConsView = [[EnterProsConsViewController alloc]init];
-        prosConsView.target = self.target;
-        prosConsView.action = self.action;
         [prosConsView setUpWithDecision:temp];
         
         [self.navigationController pushViewController:prosConsView animated:NO];

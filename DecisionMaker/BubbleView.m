@@ -195,7 +195,6 @@
     
     while(stringSize.width > rect.size.width){
         returnFont = [UIFont systemFontOfSize:returnFont.pointSize -1];
-        NSLog(@"returnFont %f", returnFont.pointSize);
         stringSize = [string sizeWithFont:returnFont];
     }
     

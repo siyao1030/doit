@@ -103,9 +103,12 @@
 
 -(void)checkfirstTime
 {
-    if (self.decision.rowid== 1)
+    if([[[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] isEqualToString:@"Tips2"])
+    //if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"])
     {
-        NSLog(@"firstTime!");
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"TipsDone"] forKey:@"firstTime"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         UIAlertView * firstTimeAlert = [[UIAlertView alloc]initWithTitle:@"Tips"
                                                                  message:@"Weigh the pairs of Pros and Cons! Ask yourself which factor matters more to you."
                                                                 delegate:self
@@ -113,6 +116,7 @@
                                                        otherButtonTitles:nil];
         [firstTimeAlert setTag:2];
         [firstTimeAlert show];
+        
     }
 }
 -(void)setUpWithDecision:(Decision *)decision
