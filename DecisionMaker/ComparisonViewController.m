@@ -29,54 +29,59 @@
     
     [label setText: @"Comparison"];
     [label sizeToFit];
-    
-    
-
-
-    self.decision = decision;
-    
-    
 
     
-    //using testing decision
-    
-    
+
     //interfaces
+    UIImage * confirmImage = [UIImage imageNamed:@"confirm.png"];
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if (screenHeight < 568)
+    {
+        self.instructionlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40*0.8, 320, 21)];
+        self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400*0.8) andSizeFactor:0.7];
+        self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.nextButton setFrame:
+         CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-180, confirmImage.size.width, confirmImage.size.height)];
+    }
+    else
+    {
+        self.instructionlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 21)];
+        self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400) andSizeFactor:1];
+        self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.nextButton setFrame:
+         CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-90, confirmImage.size.width, confirmImage.size.height)];
+    }
     
-    self.instructionlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 25)];
+    
     [self.instructionlabel setText:@"Which one do you care more?"];
     [self.instructionlabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light"  size: 21]];
     [self.instructionlabel setTextColor:redOpaque];
     [self.instructionlabel setTextAlignment:NSTextAlignmentCenter];
-    
     [self.view addSubview:self.instructionlabel];
-    self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400)];
-    //self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, self.bubbles.frame.size.width, self.bubbles.frame.size.height)];
+    
     [self.bubbles setBackgroundColor:bgColor];
     self.bubbles.target = self;
     self.bubbles.increaseA = @selector(increaseFactorA);
     self.bubbles.increaseB = @selector(increaseFactorB);
 
     [self.view addSubview:self.bubbles];
+
     
-    //dont delete yet, need to improve
-    /*
-    self.prevButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.prevButton setFrame:CGRectMake(10, self.view.frame.size.height-130, 80, 33)];
-    [self.prevButton setTitle:@"< Previous" forState:UIControlStateNormal];
-    [self.prevButton addTarget:self action:@selector(prevComparison) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.prevButton];
-    */
-
-
-    UIImage * confirmImage = [UIImage imageNamed:@"confirm.png"];
-    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.nextButton setFrame:
-                       CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-80, confirmImage.size.width, confirmImage.size.height)];
     [self.nextButton setImage:confirmImage forState:UIControlStateNormal];
     [self.nextButton addTarget:self action:@selector(nextComparison) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     
+    
+    //dont delete yet, need to improve
+    /*
+     self.prevButton = [UIButton buttonWithType:UIButtonTypeSystem];
+     [self.prevButton setFrame:CGRectMake(10, self.view.frame.size.height-130, 80, 33)];
+     [self.prevButton setTitle:@"< Previous" forState:UIControlStateNormal];
+     [self.prevButton addTarget:self action:@selector(prevComparison) forControlEvents:UIControlEventTouchUpInside];
+     [self.view addSubview:self.prevButton];
+     */
+    
+
     self.decision = decision;
     
     self.choiceA = self.decision.choices[0];

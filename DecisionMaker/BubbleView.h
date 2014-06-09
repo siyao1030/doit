@@ -18,12 +18,13 @@
 @property NSString * labelB;
 @property int isProB;
 @property BOOL displaySize;
+@property float factor;
 
 @property id target;
 @property SEL increaseA;
 @property SEL increaseB;
 
-
+- (id)initWithFrame:(CGRect)frame andSizeFactor:(float)factor;
 
 -(void)setUpWithSiza:(int)size andLabel:(NSString *)label andChoice:(int)index andShouldDisplaySize:(BOOL)shouldDisplay;
 

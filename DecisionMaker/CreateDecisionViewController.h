@@ -18,7 +18,9 @@
 
 @property UITextField *choiceA;
 @property UITextField *choiceB;
+@property UIScrollView * scrollView;
 
+@property BOOL keyboardIsShown;
 
 
 @property Decision *decision;

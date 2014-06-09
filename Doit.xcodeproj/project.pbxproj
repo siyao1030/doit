@@ -44,7 +44,6 @@
 		D126128518403FF7002FFB83 /* Factor.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128418403FF7002FFB83 /* Factor.m */; };
 		D12612881840450F002FFB83 /* DecisionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12612871840450F002FFB83 /* DecisionTableViewController.m */; };
 		D126128C184047B8002FFB83 /* CreateDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128A184047B8002FFB83 /* CreateDecisionViewController.m */; };
-		D126128D184047B8002FFB83 /* CreateDecisionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */; };
 		D15B7AD8187027AD001482F1 /* CompResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7AD7187027AD001482F1 /* CompResultViewController.m */; };
 		D15B7ADB18703352001482F1 /* CompResultCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7ADA18703352001482F1 /* CompResultCellView.m */; };
 		D17994FA1840993F00939EFB /* AddProsConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17994F81840993F00939EFB /* AddProsConsViewController.m */; };
@@ -52,7 +51,6 @@
 		D17994FE1841DDEF00939EFB /* comparisonMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D17994FD1841DDEF00939EFB /* comparisonMaker.m */; };
 		D17995011841F36100939EFB /* Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = D17995001841F36100939EFB /* Comparison.m */; };
 		D17995071842B15500939EFB /* ComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17995051842B15500939EFB /* ComparisonViewController.m */; };
-		D17995081842B15500939EFB /* ComparisonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17995061842B15500939EFB /* ComparisonViewController.xib */; };
 		D179950B184EB9C000939EFB /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D179950A184EB9C000939EFB /* ResultViewController.m */; };
 		D179950E184EBC6900939EFB /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D179950D184EBC6900939EFB /* BubbleView.m */; };
 		D1799511185050CD00939EFB /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = D1799510185050CD00939EFB /* Database.m */; };
@@ -136,7 +134,6 @@
 		D12612871840450F002FFB83 /* DecisionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionTableViewController.m; sourceTree = "<group>"; };
 		D1261289184047B8002FFB83 /* CreateDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDecisionViewController.h; sourceTree = "<group>"; };
 		D126128A184047B8002FFB83 /* CreateDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDecisionViewController.m; sourceTree = "<group>"; };
-		D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateDecisionViewController.xib; sourceTree = "<group>"; };
 		D15B7AD6187027AD001482F1 /* CompResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultViewController.h; sourceTree = "<group>"; };
 		D15B7AD7187027AD001482F1 /* CompResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompResultViewController.m; sourceTree = "<group>"; };
 		D15B7AD918703352001482F1 /* CompResultCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultCellView.h; sourceTree = "<group>"; };
@@ -151,7 +148,6 @@
 		D17995001841F36100939EFB /* Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comparison.m; path = Objects/Comparison.m; sourceTree = "<group>"; };
 		D17995041842B15500939EFB /* ComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparisonViewController.h; sourceTree = "<group>"; };
 		D17995051842B15500939EFB /* ComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparisonViewController.m; sourceTree = "<group>"; };
-		D17995061842B15500939EFB /* ComparisonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComparisonViewController.xib; sourceTree = "<group>"; };
 		D1799509184EB9C000939EFB /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		D179950A184EB9C000939EFB /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		D179950C184EBC6900939EFB /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
@@ -299,7 +295,6 @@
 				D12612871840450F002FFB83 /* DecisionTableViewController.m */,
 				D1261289184047B8002FFB83 /* CreateDecisionViewController.h */,
 				D126128A184047B8002FFB83 /* CreateDecisionViewController.m */,
-				D126128B184047B8002FFB83 /* CreateDecisionViewController.xib */,
 				D17994F71840993F00939EFB /* AddProsConsViewController.h */,
 				D17994F81840993F00939EFB /* AddProsConsViewController.m */,
 				D17994F91840993F00939EFB /* AddProsConsViewController.xib */,
@@ -313,7 +308,6 @@
 				D1CF61A618DE572900F12821 /* ProgressView.m */,
 				D17995041842B15500939EFB /* ComparisonViewController.h */,
 				D17995051842B15500939EFB /* ComparisonViewController.m */,
-				D17995061842B15500939EFB /* ComparisonViewController.xib */,
 				D1799509184EB9C000939EFB /* ResultViewController.h */,
 				D179950A184EB9C000939EFB /* ResultViewController.m */,
 				D15B7AD6187027AD001482F1 /* CompResultViewController.h */,
@@ -475,11 +469,9 @@
 				D181A4D81938F38800CCE8F4 /* Icon-Small@2x.png in Resources */,
 				D181A4D31938F38800CCE8F4 /* Icon-76.png in Resources */,
 				D126126018403399002FFB83 /* Images.xcassets in Resources */,
-				D126128D184047B8002FFB83 /* CreateDecisionViewController.xib in Resources */,
 				D10BFD2B185EEB670095C732 /* stage1.png in Resources */,
 				D1CF61B118E0E1DB00F12821 /* conGray.png in Resources */,
 				D109846D18E81195001EAFE9 /* confirm@2x.png in Resources */,
-				D17995081842B15500939EFB /* ComparisonViewController.xib in Resources */,
 				D10AAE041862C93E005BFD7E /* next.png in Resources */,
 				D1CF61B218E0E1DB00F12821 /* proGray.png in Resources */,
 				D1CF61B618E0E21B00F12821 /* pro.png in Resources */,

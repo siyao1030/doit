@@ -40,10 +40,17 @@
     [label setText: @"Result"];
     [label sizeToFit];
     
-    
-   
-    
-    self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 50, 320, 400)];
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if (screenHeight < 568)
+    {
+        self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 60, 320, 400*0.8) andSizeFactor:0.7];
+        self.resultLabel = [[UILabel alloc]initWithFrame:CGRectMake((320-250)/2, 25, 250, 30)];
+    }
+    else
+    {
+        self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 50, 320, 400) andSizeFactor:1];
+        self.resultLabel = [[UILabel alloc]initWithFrame:CGRectMake((320-250)/2, 30, 250, 30)];
+    }
 
     Choice * a = self.decision.choices[0];
     Choice * b = self.decision.choices[1];
@@ -66,7 +73,7 @@
     [self.view addSubview:self.bubbles];
     
     
-    self.resultLabel = [[UILabel alloc]initWithFrame:CGRectMake((320-250)/2, 30, 250, 30)];
+    
     [self.resultLabel setText:@"Your Heart Belongs to"];
     [self.resultLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light"  size: 22]];
     [self.resultLabel setTextColor:redOpaque];

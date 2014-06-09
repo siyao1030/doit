@@ -26,6 +26,13 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame andSizeFactor:(float)factor
+{
+    self = [super initWithFrame:frame];
+    self.factor = factor;
+    return self;
+    
+}
 
 
 -(void)setUpWithItemALabel:(NSString *)labelA andASize:(int)sizeA andItemBLabel: (NSString *)labelB andBSize:(int)sizeB andShouldDisplaySize:(BOOL)shouldDisplay
@@ -63,11 +70,11 @@
     // within circle A
     int radiusA = 170*(self.sizeA/100.0)/2;
     float Axdiff = fabsf(touchPoint.x-160);
-    float Aydiff = fabsf(touchPoint.y-(200-radiusA));
+    float Aydiff = fabsf(touchPoint.y-(200*self.factor-radiusA));
     
     int radiusB = 170*(self.sizeB/100.0)/2;
     float Bxdiff = fabsf(touchPoint.x-160);
-    float Bydiff = fabsf(touchPoint.y-(200+radiusB));
+    float Bydiff = fabsf(touchPoint.y-(200*self.factor+radiusB));
     
     if (Axdiff*Axdiff + Aydiff*Aydiff <=radiusA*radiusA)
     {
@@ -89,36 +96,37 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    
+    float d = 170*self.factor;
+    float f = 60*self.factor;
     //// Color Declarations
     UIColor* fillColor = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
     
     //// Abstracted Attributes
     NSString* sizeContentA = [NSString stringWithFormat:@"%d",self.sizeA];
     NSString* sizeContentB = [NSString stringWithFormat:@"%d",self.sizeB];
-    int diameterA = 170*(self.sizeA/100.0);
-    int diameterB = 170*(self.sizeB/100.0);
-    int sizeFontA = 60*(self.sizeA/100.0);
-    int sizeFontB = 60*(self.sizeB/100.0);
+    int diameterA = d*(self.sizeA/100.0);
+    int diameterB = d*(self.sizeB/100.0);
+    int sizeFontA = f*(self.sizeA/100.0);
+    int sizeFontB = f*(self.sizeB/100.0);
     
     if (diameterA < 17) {
         diameterA = 17;
-        diameterB = 170*0.9;
+        diameterB = d*0.9;
         sizeFontA = 6;
-        sizeFontB = 60*0.9;
+        sizeFontB = f*0.9;
     }
     if (diameterB < 17)
     {
-        diameterA = 170*0.9;
+        diameterA = d*0.9;
         diameterB = 17;
-        sizeFontA = 60*0.9;
+        sizeFontA = f*0.9;
         sizeFontB = 6;
     }
 
 
     
     //// Oval Drawing
-    CGRect ovalRect = CGRectMake(160-diameterA/2, 200-diameterA, diameterA, diameterA);
+    CGRect ovalRect = CGRectMake(160-diameterA/2, 200*self.factor-diameterA, diameterA, diameterA);
     UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: ovalRect];
     UIColor * colorGreen;
     if (self.isProA == NO)
@@ -137,10 +145,10 @@
     
     //// Text 1 Drawing
     
-    CGRect text1Rect = CGRectMake(5, 200-diameterA-39, 310, 39);
+    CGRect text1Rect = CGRectMake(5, 200*self.factor-diameterA-39, 310, 39);
 
     UIFont* font = [self getFontForString:self.labelA toFitInRect:text1Rect seedFont:[UIFont systemFontOfSize:30]];
-    text1Rect = CGRectMake(5, 200-diameterA-39+(30-font.pointSize), 310, 39);
+    text1Rect = CGRectMake(5, 200*self.factor-diameterA-39+(30-font.pointSize), 310, 39);
     // code for breaking into two lines
     //CGSize constraint = CGSizeMake(300,NSUIntegerMax);
     //CGSize size = [self.labelA sizeWithFont:font constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
@@ -153,7 +161,7 @@
     // Construct your label
 
     //// Text 2 Drawing
-    CGRect text2Rect = CGRectMake(5, 200+diameterB, 310, 39);
+    CGRect text2Rect = CGRectMake(5, 200*self.factor+diameterB, 310, 39);
     UIFont* font2 = [self getFontForString:self.labelB toFitInRect:text2Rect seedFont:[UIFont systemFontOfSize:30]];
     
     [darkOrange setFill];
@@ -162,7 +170,7 @@
 
     
     //// Oval 2 Drawing
-    CGRect oval2Rect = CGRectMake(160-diameterB/2, 200, diameterB, diameterB);
+    CGRect oval2Rect = CGRectMake(160-diameterB/2, 200*self.factor, diameterB, diameterB);
     UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: oval2Rect];
     
     UIColor * colorOrange;

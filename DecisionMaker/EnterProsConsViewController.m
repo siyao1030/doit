@@ -791,7 +791,6 @@
                                                object:self.view.window];
     self.keyboardIsShown = NO;
     //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-    CGSize scrollContentSize = CGSizeMake(320, 345);
     self.choiceATableView.contentSize = CGSizeMake(320, 45*self.choiceAfactors.count+1);
     self.choiceBTableView.contentSize = CGSizeMake(320, 45*self.choiceBfactors.count+1);
     // Do any additional setup after loading the view from its nib.
