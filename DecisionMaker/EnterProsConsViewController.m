@@ -30,7 +30,7 @@
         int diff = abs(self.choiceAfactors.count - self.choiceBfactors.count);
         if (diff >= 3 || diff > MIN(self.choiceBfactors.count, self.choiceAfactors.count)) {
             UIAlertView * tipAlert = [[UIAlertView alloc] initWithTitle:@"Tips"
-                                                                message:@"Making the number of Pros and Cons comparable between Choices improves decision quality."
+                                                                message:@"Making the number of Pros and Cons of each Choice comparable improves decision quality."
                                                                delegate:self
                                                       cancelButtonTitle:@"Continue"
                                                       otherButtonTitles:@"Modify", nil];
