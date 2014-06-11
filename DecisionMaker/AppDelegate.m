@@ -91,13 +91,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Tips1"] forKey:@"firstTime"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    Choice * a = [[Choice alloc]initWithTitle:@"Use this App"];
+    Choice * a = [[Choice alloc]initWithTitle:@"Use This App"];
     [a addToFactors:[[Factor alloc]initWithTitle:@"Rational" andIsPro:YES]];
     [a addToFactors:[[Factor alloc]initWithTitle:@"Easy to use" andIsPro:YES]];
     [a addToFactors:[[Factor alloc]initWithTitle:@"Need to think" andIsPro:NO]];
-    Choice * b = [[Choice alloc]initWithTitle:@"Or not"];
+    Choice * b = [[Choice alloc]initWithTitle:@"or Not"];
     [b addToFactors:[[Factor alloc]initWithTitle:@"Think even more!" andIsPro:NO]];
-    [b addToFactors:[[Factor alloc]initWithTitle:@"But can't decide!" andIsPro:NO]];
+    [b addToFactors:[[Factor alloc]initWithTitle:@"Yet can't decide!" andIsPro:NO]];
     
     Decision * example = [[Decision alloc]initWithChoiceA:a andChoiceB:b andTitle:@"Example Decision"];
     example.stage = ProsConsStage;
