@@ -37,7 +37,6 @@
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, navBarHeight+statusBarHeight, 320, screenHeight-navBarHeight-statusBarHeight)];
     self.scrollView.contentSize = CGSizeMake(320, screenHeight-navBarHeight-statusBarHeight);
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    NSLog(@"%F",navBarHeight+statusBarHeight);
     [self.view addSubview:self.scrollView];
     float factor = 80;
 
@@ -160,16 +159,12 @@
     
     if (self.decision == NULL)
     {
-        NSLog(@"new decision");
         Choice * choiceA = [[Choice alloc]initWithTitle:self.choiceA.text];
         Choice * choiceB = [[Choice alloc]initWithTitle:self.choiceB.text];
         self.decision = [[Decision alloc]initWithChoiceA:choiceA andChoiceB:choiceB andTitle:self.decisionTitle.text];
         
         self.decision.stage = ProsConsStage;
-        NSLog(@"%d",self.decision.rowid);
-        // what is the rowid here???
         //adding decision here
-        //[self.target performSelector:self.action withObject:self.decision];
         int rowid = [Database saveItemWithData:self.decision];
         self.decision.rowid = rowid;
     }

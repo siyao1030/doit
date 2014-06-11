@@ -182,7 +182,6 @@
     
     float ad = 0;
     float bd = 0;
-    //NSLog(@"A:");
     for (Factor * factorA in factorsA)
     {
         for (NSArray * compared in factorA.comparedWith)
@@ -202,7 +201,6 @@
         
     }
     
-    //NSLog(@"B:");
     for (Factor * factorB in factorsB)
     {
         for (NSArray * compared in factorB.comparedWith)
@@ -220,7 +218,6 @@
     }
     
     //add up and update each factor's score and reset tempScore
-    NSLog(@"A:");
     for (Factor * factor in factorsA)
     {
 
@@ -252,7 +249,6 @@
     self.AcontributionScore = a;
     
     
-    NSLog(@"B:");
     for (Factor * factor in factorsB)
     {
         if (factor.comparedWith.count >0)

@@ -232,7 +232,6 @@
                         [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
                     
                     //[self.decision.comparisons addObjectsFromArray:newComps];
-                    NSLog(@"pushing currentWeightComps: %lu", (unsigned long)newComps.count);
                 }
                 else
                 {

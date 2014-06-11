@@ -79,6 +79,14 @@
 
 - (void)firstStartAfterFreshInstall
 {
+    //present intro view
+    self.introView = [[APPViewController alloc] init];
+    //self.window.rootViewController = self.introView;
+    //[self.window makeKeyAndVisible];
+    UIPageControl *pageControl = [UIPageControl appearance];
+
+    pageControl.backgroundColor = [UIColor colorWithRed:230/255.0 green:162/255.0 blue:136/255.0 alpha:1];
+    
     NSLog(@"first start up");
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Tips1"] forKey:@"firstTime"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -97,7 +105,7 @@
     example.rowid = rowid;
     
     [self.mainView reload];
-    
+    [self.mainView presentViewController:self.introView animated:YES completion:nil];
 }
 
 - (void)firstStartAfterUpgradeDowngrade

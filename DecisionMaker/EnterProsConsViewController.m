@@ -104,7 +104,6 @@
 -(void)checkfirstTime
 {
     if([[[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] isEqualToString:@"Tips2"])
-    //if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"])
     {
         [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"TipsDone"] forKey:@"firstTime"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -300,7 +299,6 @@
                 NSLog(@"starting over");
                 self.decision.numOfCompsDone = 0;
                 [self.decision resetStats];
-                NSLog(@"comps done %d",self.decision.numOfCompsDone);
                 self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
                 [self.navigationController pushViewController:self.compareView animated:YES];
                 [[self.navigationController.viewControllers objectAtIndex:0] reload];
@@ -314,7 +312,6 @@
                 if (self.decision.numOfCompsDone == maxComps)
                 {
                     NSLog(@"resume go directly to result");
-
                     Decision * temp = [self.decision copy];
                     [temp resetStats];
                     ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:temp];
@@ -434,7 +431,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"did end editing");
     if (![textField.text isEqualToString: @""]) {
         self.changeFlag = YES;
         
@@ -627,6 +623,7 @@
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
         UITextField * txtField1 = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 160, 45)];
         [txtField1 setLeftViewMode:UITextFieldViewModeAlways];
         [txtField1 setBackgroundColor:bgColor];
@@ -639,19 +636,28 @@
         
         if (self.choiceATableView==tableView)
         {
-            [self.choiceAfactors removeObjectAtIndex:indexPath.row];
-            [self.AtxtFields removeObjectAtIndex:indexPath.row];
+            if (self.choiceAfactors.count > 0)
+            {
+                [self.choiceAfactors removeObjectAtIndex:indexPath.row];
+                [self.AtxtFields removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                self.changeFlag = YES;
+            }
             //[self.AtxtFields addObject:txtField1];
         }
         if (self.choiceBTableView==tableView)
         {
-            [self.choiceBfactors removeObjectAtIndex:indexPath.row];
-            [self.BtxtFields removeObjectAtIndex:indexPath.row];
+            if (self.choiceBfactors.count > 0)
+            {
+                [self.choiceBfactors removeObjectAtIndex:indexPath.row];
+                [self.BtxtFields removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                self.changeFlag = YES;
+            }
             //[self.BtxtFields addObject:txtField1];
         }
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        self.changeFlag = YES;
+        
     }
     
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -795,7 +801,6 @@
     self.choiceBTableView.contentSize = CGSizeMake(320, 45*self.choiceBfactors.count+1);
     // Do any additional setup after loading the view from its nib.
     
-    NSLog(@"decision no.%d",self.decision.rowid);
     
 
     
@@ -867,7 +872,6 @@
 
 - (void)viewTapped:(UITapGestureRecognizer *)tgr
 {
-    NSLog(@"tapped");
     //UITextField * currentTextField = [(UIResponder *)self.view currentFirstResponder];
     
     // remove keyboard

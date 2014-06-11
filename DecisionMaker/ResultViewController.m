@@ -222,6 +222,7 @@
         case 1:
         {
             [self shareToWechatWithOption:buttonIndex];
+            
         }
             
     }
@@ -233,12 +234,10 @@
 
 -(void)shareToFB
 {
-    
     //UIImageWriteToSavedPhotosAlbum(self.screenshot, nil, nil, nil);
     
     // If the Facebook app is installed and we can present the share dialog
     if([FBDialogs canPresentShareDialogWithPhotos]) {
-        NSLog(@"canPresent");
         // Retrieve a picture from the device's photo library
         /*
          NOTE: SDK Image size limits are 480x480px minimum resolution to 12MB maximum file size.
@@ -260,9 +259,9 @@
                                                      NSLog(@"Success!");
                                                  }
                                              }];
-         
-         
-
+        
+        
+        
         
     } else {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Opps!" message:@"You currently don't have Facebook installed." delegate:self cancelButtonTitle:@"Got it." otherButtonTitles:nil];
@@ -275,7 +274,6 @@
          See the reference: https://developers.facebook.com/docs/reference/ios/current/class/FBRequest/#requestForUploadPhoto:
          */
     }
-
 }
 
 
@@ -315,7 +313,8 @@
         //share with contact
         req.bText = NO;
         req.message = message;
-        error = req.scene = WXSceneSession;
+        req.scene = WXSceneSession;
+        error = [WXApi sendReq:req];
     }
     if (error == NO)
     {
@@ -370,6 +369,7 @@
     [self.bubbles setNeedsDisplay];
 }
 
+/*
 -(void)switchScoring
 {
     if (self.mode == NetworkScoreMode)
@@ -390,13 +390,7 @@
         self.mode = NetworkScoreMode;
         [self resetContribution];
         [self.view addSubview:self.convergeButton];
-        /*
-        [self.bubbles setUpWithItemALabel:[self.decision.choices[0] title]
-                                 andASize:self.decision.Arate
-                            andItemBLabel:[self.decision.choices[1] title]
-                                 andBSize:self.decision.Brate
-                     andShouldDisplaySize:YES];
-         */
+
         NSLog(@"network: %f : %f", self.decision.Arate, self.decision.Brate);
         //[self.resetButton removeFromSuperview];
         //[self.recurseButton removeFromSuperview];
@@ -407,7 +401,8 @@
     
     
 }
-
+*/
+/*
 -(void)resetContribution
 {
 
@@ -461,6 +456,8 @@
     [self.bubbles setNeedsDisplay];
 
 }
+ 
+ */
 -(void)didPressDone
 {
     

@@ -58,9 +58,6 @@
 
 - (id)initWithChoiceA:(Choice *)choice1 andChoiceB:(Choice *)choice2 andTitle:(NSString *)title;
 
-- (void)updateScore;
-
--(void)updateContributionScore;
 
 -(void)updateNetworkScore;
 

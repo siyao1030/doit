@@ -143,7 +143,8 @@
     
     UIImage * cellImage = [UIImage imageNamed:[NSString stringWithFormat:@"stage%d.png",temp.stage]];
     [[cell imageView] setImage:cellImage];
-    //[[cell imageView] setFrame:CGRectMake(0, 0, cellImage.size.width, cellImage.size.height)];
+    [[cell imageView] setFrame:CGRectMake(0, 0, cellImage.size.width, cellImage.size.height)];
+    
     return cell;
     }
 
