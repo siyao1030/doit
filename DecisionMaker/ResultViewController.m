@@ -55,7 +55,7 @@
     Choice * a = self.decision.choices[0];
     Choice * b = self.decision.choices[1];
     
-    
+    /*
     //////tantative!! delete after testing
     if (self.decision.numOfCompsDone == 0)
     {
@@ -63,7 +63,7 @@
         self.decision.numOfCompsDone = MIN(3*MAX(a.factors.count, b.factors.count),a.factors.count*b.factors.count);
     }
     //////tantative!! delete after testing
-    
+    */
     
     [self.decision convergeNetworkScore];
     
@@ -475,9 +475,9 @@
 {
     
     
-    [self.decision resetStats];
-    
-    [[self.navigationController.viewControllers objectAtIndex:3] reload];
+    //[self.decision resetStats];
+    //comparison view reload - replace decision with tempdecision
+    //[[self.navigationController.viewControllers objectAtIndex:3] reload];
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
     //[self.navigationController popViewControllerAnimated:NO];
 

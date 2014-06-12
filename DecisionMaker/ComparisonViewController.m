@@ -279,7 +279,7 @@
 
 
 
-/////*** once down redeciding, should overide decision with tempdecision, and save to history
+/////*** once done redeciding, should overide decision with tempdecision, and save to history
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.numberOfButtons == 1)

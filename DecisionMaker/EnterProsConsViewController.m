@@ -312,9 +312,9 @@
                 if (self.decision.numOfCompsDone == maxComps)
                 {
                     NSLog(@"resume go directly to result");
-                    Decision * temp = [self.decision copy];
-                    [temp resetStats];
-                    ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:temp];
+                    //Decision * temp = [self.decision copy];
+                    //[temp resetStats];
+                    ComparisonViewController * compareView = [[ComparisonViewController alloc]initWithDecision:self.decision];
                     [self.navigationController pushViewController:compareView animated:NO];
                     
                     ResultViewController * resultView = [[ResultViewController alloc]initWithDecision:self.decision];

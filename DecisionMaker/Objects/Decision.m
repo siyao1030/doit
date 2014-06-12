@@ -31,7 +31,7 @@
 
 -(void)resetStats
 {
-    /*
+    
     self.AcontributionScore = 0.0;
     self.BcontributionScore = 0.0;
     self.round = 1;
@@ -45,10 +45,10 @@
     
     [(Choice *)self.choices[0] resetStats];
     [(Choice *)self.choices[1] resetStats];
-     */
+    
     //self.numOfCompsDone = 0;
 
-    
+    /*
     
     self.tempDecision = [self copy];
     self.tempDecision.AcontributionScore = 0.0;
@@ -68,7 +68,7 @@
     
     
     [self.history addObject:[self copy]];
-    
+    */
 }
 
 -(id)copyWithZone:(NSZone *)zone
