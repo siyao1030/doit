@@ -60,8 +60,8 @@
 
 -(void)addButtonPressed
 {
-    
-    CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]initWithNibName:@"CreateDecisionViewController" bundle:nil];
+    CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]init];
+    //CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]initWithNibName:@"CreateDecisionViewController" bundle:nil];
     [createView setup];
     createView.target = self;
     createView.action = @selector(reload);
@@ -178,7 +178,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Decision *temp = [self.decisions objectAtIndex:indexPath.row];
-    CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]initWithNibName:@"CreateDecisionViewController" bundle:nil];
+    CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]init];
+    //CreateDecisionViewController * createView = [[CreateDecisionViewController alloc]initWithNibName:@"CreateDecisionViewController" bundle:nil];
     [createView setup];
     [createView setUpWithDecision:temp];
     createView.target = self;

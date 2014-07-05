@@ -50,13 +50,13 @@
     CGFloat x = 0;
     CGFloat width = 320;
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    NSLog(@"nav bar %f", navBarHeight);
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat height = self.view.frame.size.height-navBarHeight-tabBarHeight;
-    CGFloat y = navBarHeight;//+statusBarHeight???
+    CGFloat y = 0;
+    CGFloat height = self.view.frame.size.height-statusBarHeight-tabBarHeight-navBarHeight-44;
     
     CGRect tableFrame = CGRectMake(x, y, width, height);
-    
     UITableView *tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStylePlain];
     
     tableView.rowHeight = 60;

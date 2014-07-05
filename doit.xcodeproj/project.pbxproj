@@ -30,6 +30,8 @@
 		D126128518403FF7002FFB83 /* Factor.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128418403FF7002FFB83 /* Factor.m */; };
 		D12612881840450F002FFB83 /* DecisionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12612871840450F002FFB83 /* DecisionTableViewController.m */; };
 		D126128C184047B8002FFB83 /* CreateDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D126128A184047B8002FFB83 /* CreateDecisionViewController.m */; };
+		D14195D0194969FB0055F93B /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = D14195CE194969FB0055F93B /* Icon-Small-40.png */; };
+		D14195D1194969FB0055F93B /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D14195CF194969FB0055F93B /* Icon-Small-40@2x.png */; };
 		D15B7AD8187027AD001482F1 /* CompResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7AD7187027AD001482F1 /* CompResultViewController.m */; };
 		D15B7ADB18703352001482F1 /* CompResultCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B7ADA18703352001482F1 /* CompResultCellView.m */; };
 		D17994FA1840993F00939EFB /* AddProsConsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17994F81840993F00939EFB /* AddProsConsViewController.m */; };
@@ -110,20 +112,20 @@
 		D109846918E38C99001EAFE9 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
 		D109846A18E38C99001EAFE9 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
 		D10BFD30185FD0D30095C732 /* decisions.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = decisions.sqlite; sourceTree = "<group>"; };
-		D126124518403399002FFB83 /* Doit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D126124518403399002FFB83 /* doit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D126124818403399002FFB83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D126124A18403399002FFB83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D126124C18403399002FFB83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D126124E18403399002FFB83 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D126125218403399002FFB83 /* Doit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Doit-Info.plist"; sourceTree = "<group>"; };
+		D126125218403399002FFB83 /* doit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "doit-Info.plist"; sourceTree = "<group>"; };
 		D126125418403399002FFB83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D126125618403399002FFB83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D126125818403399002FFB83 /* Doit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Doit-Prefix.pch"; sourceTree = "<group>"; };
+		D126125818403399002FFB83 /* doit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "doit-Prefix.pch"; sourceTree = "<group>"; };
 		D126125918403399002FFB83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D126125A18403399002FFB83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D126125D18403399002FFB83 /* DecisionMaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DecisionMaker.xcdatamodel; sourceTree = "<group>"; };
 		D126125F18403399002FFB83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D126126518403399002FFB83 /* DoitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D126126518403399002FFB83 /* doitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = doitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D126126618403399002FFB83 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D126126F18403399002FFB83 /* DoitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoitTests-Info.plist"; sourceTree = "<group>"; };
 		D126127118403399002FFB83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -138,6 +140,8 @@
 		D12612871840450F002FFB83 /* DecisionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionTableViewController.m; sourceTree = "<group>"; };
 		D1261289184047B8002FFB83 /* CreateDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDecisionViewController.h; sourceTree = "<group>"; };
 		D126128A184047B8002FFB83 /* CreateDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDecisionViewController.m; sourceTree = "<group>"; };
+		D14195CE194969FB0055F93B /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40.png"; path = "icons/Icon-Small-40.png"; sourceTree = "<group>"; };
+		D14195CF194969FB0055F93B /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40@2x.png"; path = "icons/Icon-Small-40@2x.png"; sourceTree = "<group>"; };
 		D15B7AD6187027AD001482F1 /* CompResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultViewController.h; sourceTree = "<group>"; };
 		D15B7AD7187027AD001482F1 /* CompResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompResultViewController.m; sourceTree = "<group>"; };
 		D15B7AD918703352001482F1 /* CompResultCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompResultCellView.h; sourceTree = "<group>"; };
@@ -265,8 +269,8 @@
 		D126124618403399002FFB83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D126124518403399002FFB83 /* Doit.app */,
-				D126126518403399002FFB83 /* DoitTests.xctest */,
+				D126124518403399002FFB83 /* doit.app */,
+				D126126518403399002FFB83 /* doitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,10 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				D19774871946B4F200A11F11 /* images */,
-				D126125218403399002FFB83 /* Doit-Info.plist */,
+				D126125218403399002FFB83 /* doit-Info.plist */,
 				D126125318403399002FFB83 /* InfoPlist.strings */,
 				D126125618403399002FFB83 /* main.m */,
-				D126125818403399002FFB83 /* Doit-Prefix.pch */,
+				D126125818403399002FFB83 /* doit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -342,6 +346,8 @@
 		D19774871946B4F200A11F11 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D14195CE194969FB0055F93B /* Icon-Small-40.png */,
+				D14195CF194969FB0055F93B /* Icon-Small-40@2x.png */,
 				D19774AE1946BF1500A11F11 /* Default.png */,
 				D19774AF1946BF1500A11F11 /* Default@2x.png */,
 				D19774B01946BF1500A11F11 /* Default-568h@2x.png */,
@@ -462,9 +468,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D126124418403398002FFB83 /* Doit */ = {
+		D126124418403398002FFB83 /* doit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "Doit" */;
+			buildConfigurationList = D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "doit" */;
 			buildPhases = (
 				D126124118403398002FFB83 /* Sources */,
 				D126124218403398002FFB83 /* Frameworks */,
@@ -474,14 +480,14 @@
 			);
 			dependencies = (
 			);
-			name = Doit;
+			name = doit;
 			productName = DecisionMaker;
-			productReference = D126124518403399002FFB83 /* Doit.app */;
+			productReference = D126124518403399002FFB83 /* doit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D126126418403399002FFB83 /* DoitTests */ = {
+		D126126418403399002FFB83 /* doitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "DoitTests" */;
+			buildConfigurationList = D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "doitTests" */;
 			buildPhases = (
 				D126126118403399002FFB83 /* Sources */,
 				D126126218403399002FFB83 /* Frameworks */,
@@ -492,9 +498,9 @@
 			dependencies = (
 				D126126C18403399002FFB83 /* PBXTargetDependency */,
 			);
-			name = DoitTests;
+			name = doitTests;
 			productName = DecisionMakerTests;
-			productReference = D126126518403399002FFB83 /* DoitTests.xctest */;
+			productReference = D126126518403399002FFB83 /* doitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -511,7 +517,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D126124018403398002FFB83 /* Build configuration list for PBXProject "Doit" */;
+			buildConfigurationList = D126124018403398002FFB83 /* Build configuration list for PBXProject "doit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -523,8 +529,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D126124418403398002FFB83 /* Doit */,
-				D126126418403399002FFB83 /* DoitTests */,
+				D126124418403398002FFB83 /* doit */,
+				D126126418403399002FFB83 /* doitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -543,6 +549,7 @@
 				D19774A01946B4F200A11F11 /* ranking.png in Resources */,
 				D19774B11946BF1500A11F11 /* Default.png in Resources */,
 				D126125518403399002FFB83 /* InfoPlist.strings in Resources */,
+				D14195D0194969FB0055F93B /* Icon-Small-40.png in Resources */,
 				D19B7766194807C70018467C /* intro0small.png in Resources */,
 				D19774821946AEBE00A11F11 /* Icon-72@2x.png in Resources */,
 				D19B7762194807C70018467C /* intro4small.png in Resources */,
@@ -574,6 +581,7 @@
 				D197747E1946AEBE00A11F11 /* Icon-40.png in Resources */,
 				D19B7763194807C70018467C /* intro3small.png in Resources */,
 				D19774A21946B4F200A11F11 /* stage1.png in Resources */,
+				D14195D1194969FB0055F93B /* Icon-Small-40@2x.png in Resources */,
 				D197749C1946B4F200A11F11 /* confirm@2x.png in Resources */,
 				D197749D1946B4F200A11F11 /* conGray.png in Resources */,
 				D19774851946AEBE00A11F11 /* Icon.png in Resources */,
@@ -640,7 +648,7 @@
 /* Begin PBXTargetDependency section */
 		D126126C18403399002FFB83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D126124418403398002FFB83 /* Doit */;
+			target = D126124418403398002FFB83 /* doit */;
 			targetProxy = D126126B18403399002FFB83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -740,21 +748,22 @@
 		D126127818403399002FFB83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/siyao1030/Downloads/DecisionMaker-master/DecisionMaker",
 					/Users/siyao1030/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
-				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				GCC_PREFIX_HEADER = "DecisionMaker/doit-Prefix.pch";
+				INFOPLIST_FILE = "DecisionMaker/doit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit",
 					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit/DecisionMaker",
 				);
-				PRODUCT_NAME = Doit;
+				PRODUCT_NAME = doit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -762,21 +771,22 @@
 		D126127918403399002FFB83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/siyao1030/Downloads/DecisionMaker-master/DecisionMaker",
 					/Users/siyao1030/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DecisionMaker/Doit-Prefix.pch";
-				INFOPLIST_FILE = "DecisionMaker/Doit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				GCC_PREFIX_HEADER = "DecisionMaker/doit-Prefix.pch";
+				INFOPLIST_FILE = "DecisionMaker/doit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit",
 					"/Users/siyao1030/Desktop/School/SP\\ 2014/Senior\\ Project/App/Doit/DecisionMaker",
 				);
-				PRODUCT_NAME = Doit;
+				PRODUCT_NAME = doit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -798,7 +808,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "DecisionMakerTests/DoitTests-Info.plist";
-				PRODUCT_NAME = DoitTests;
+				PRODUCT_NAME = doitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -817,7 +827,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DecisionMaker/DecisionMaker-Prefix.pch";
 				INFOPLIST_FILE = "DecisionMakerTests/DoitTests-Info.plist";
-				PRODUCT_NAME = DoitTests;
+				PRODUCT_NAME = doitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -826,7 +836,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D126124018403398002FFB83 /* Build configuration list for PBXProject "Doit" */ = {
+		D126124018403398002FFB83 /* Build configuration list for PBXProject "doit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D126127518403399002FFB83 /* Debug */,
@@ -835,7 +845,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "Doit" */ = {
+		D126127718403399002FFB83 /* Build configuration list for PBXNativeTarget "doit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D126127818403399002FFB83 /* Debug */,
@@ -844,7 +854,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "DoitTests" */ = {
+		D126127A18403399002FFB83 /* Build configuration list for PBXNativeTarget "doitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D126127B18403399002FFB83 /* Debug */,

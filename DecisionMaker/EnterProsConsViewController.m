@@ -57,6 +57,8 @@
         {
             NSLog(@"updated!");
             self.decision.numOfCompsDone = 0;
+            [(Choice *)self.decision.choices[0] resetStats];
+            [(Choice *)self.decision.choices[1] resetStats];
             self.decision.comparisons =[[[ComparisonMaker alloc]initWithDecision:self.decision] inputOrderCompsGenerator];
             [Database replaceItemWithData:self.decision atRow:self.decision.rowid];
             self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
@@ -79,6 +81,8 @@
             else
             {
                 self.decision.numOfCompsDone = 0;
+                [(Choice *)self.decision.choices[0] resetStats];
+                [(Choice *)self.decision.choices[1] resetStats];
                 self.compareView = [[ComparisonViewController alloc] initWithDecision:self.decision];
                 [self.navigationController pushViewController:self.compareView animated:YES];
                 [[self.navigationController.viewControllers objectAtIndex:0] reload];
@@ -173,13 +177,13 @@
 
 -(UITableView *)makeLeftTableView
 {
-    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    //CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
     CGFloat x = 0;
-    CGFloat y = navBarHeight+statusBarHeight+self.choiceAButton.frame.size.height;
+    CGFloat y = self.choiceAButton.frame.size.height;
     CGFloat width = self.view.frame.size.width/2;
-    CGFloat height = self.view.frame.size.height - y;
+    CGFloat height = self.view.frame.size.height - y - statusBarHeight;
     CGRect tableFrame = CGRectMake(x, y, width, height);
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStylePlain];
@@ -202,16 +206,17 @@
 
 -(UITableView *)makeRightTableView
 {
-    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    //CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
     CGFloat x = self.view.frame.size.width/2;
-    CGFloat y = navBarHeight+statusBarHeight+self.choiceBButton.frame.size.height;
+    CGFloat y = self.choiceBButton.frame.size.height;
     CGFloat width = self.view.frame.size.width/2;
-    CGFloat height = self.view.frame.size.height - y;
+    CGFloat height = self.view.frame.size.height - y - statusBarHeight;
     CGRect tableFrame = CGRectMake(x, y, width, height);
-    
+    NSLog(@"%f",height);
     UITableView *tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStylePlain];
+
     
     tableView.rowHeight = 45;
     tableView.sectionFooterHeight = 22;
@@ -739,7 +744,7 @@
     
     
     self.choiceAButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.choiceAButton setFrame:CGRectMake(0, navBarHeight+statusBarHeight, self.view.frame.size.width/2, 45)];
+    [self.choiceAButton setFrame:CGRectMake(0, 0, self.view.frame.size.width/2, 45)];
     [self.choiceAButton setTitle:[[self.decision.choices objectAtIndex:0] title] forState:UIControlStateNormal];
     [self.choiceAButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Bold"  size: 18]];
     self.choiceAButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -749,7 +754,7 @@
     
     
     self.choiceBButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.choiceBButton setFrame:CGRectMake(self.view.frame.size.width/2, navBarHeight+statusBarHeight, self.view.frame.size.width/2, 45)];
+    [self.choiceBButton setFrame:CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, 45)];
     [self.choiceBButton setTitle:[[self.decision.choices objectAtIndex:1] title] forState:UIControlStateNormal];
     self.choiceBButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [self.choiceBButton.titleLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Bold"  size: 18]];

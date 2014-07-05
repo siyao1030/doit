@@ -33,9 +33,9 @@
     // set nav bar root view controller
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.mainView];
-    [self.navController.navigationBar setBackgroundColor:redTransparent];
-    [self.navController.navigationBar setBarTintColor:redTransparent];
-
+    //[self.navController.navigationBar setBackgroundColor:darkPink];
+    [self.navController.navigationBar setBarTintColor:darkPink];
+    [self.navController.navigationBar setTranslucent:NO];
     
     self.navController.navigationBar.tintColor = titleColor;
     

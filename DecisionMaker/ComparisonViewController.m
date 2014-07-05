@@ -39,17 +39,13 @@
     {
         self.instructionlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40*0.8, 320, 21)];
         self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400*0.8) andSizeFactor:0.7];
-        self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.nextButton setFrame:
-         CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-180, confirmImage.size.width, confirmImage.size.height)];
+        
     }
     else
     {
         self.instructionlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 21)];
         self.bubbles = [[BubbleView alloc]initWithFrame:CGRectMake(0, 65, 320, 400) andSizeFactor:1];
-        self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.nextButton setFrame:
-         CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-90, confirmImage.size.width, confirmImage.size.height)];
+        
     }
     
     
@@ -59,6 +55,7 @@
     [self.instructionlabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:self.instructionlabel];
     
+    
     [self.bubbles setBackgroundColor:bgColor];
     self.bubbles.target = self;
     self.bubbles.increaseA = @selector(increaseFactorA);
@@ -66,7 +63,9 @@
 
     [self.view addSubview:self.bubbles];
 
-    
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.nextButton setFrame:
+     CGRectMake((self.view.frame.size.width-confirmImage.size.width)/2, self.view.frame.size.height-confirmImage.size.height-90, confirmImage.size.width, confirmImage.size.height)];
     [self.nextButton setImage:confirmImage forState:UIControlStateNormal];
     [self.nextButton addTarget:self action:@selector(nextComparison) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
@@ -183,6 +182,7 @@
 -(void)nextComparison
 {
     //record current comp's information
+    NSLog(@"compared %@, %@", self.currentComparison.factorA.title, self.currentComparison.factorB.title);
     
     self.decision.numOfCompsDone +=1;
     [self.progressView setNeedsDisplay];
@@ -225,7 +225,7 @@
             if (self.decision.round == 1)
             {
                 NSMutableArray * newComps = [self.comparisonMaker currentWeightRankingCompsGenerator];
-                
+                NSLog(@"new comps added after round 1: %d",newComps.count);
                 if (newComps.count!=0)
                 {
                     for (Comparison * newComp in newComps)
@@ -235,7 +235,9 @@
                 }
                 else
                 {
+                    
                     newComps = [self.comparisonMaker randomCompsGenerator];
+                    NSLog(@"no comps generated for second round, jump to 3rd round: %d",newComps.count);
                     for (Comparison * newComp in newComps)
                         [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
                     //[self.decision.comparisons addObjectsFromArray:newComps];
@@ -245,6 +247,7 @@
             else if (self.decision.round == 2)
             {
                 NSMutableArray * newComps = [self.comparisonMaker randomCompsGenerator];
+                NSLog(@"new comps added after round 2: %d",newComps.count);
                 for (Comparison * newComp in newComps)
                     [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
                 //[self.decision.comparisons addObjectsFromArray:newComps];
@@ -252,6 +255,8 @@
             else
             {
                 NSMutableArray * newComps = [self.comparisonMaker restCompsGenerator];
+                NSLog(@"3 rounds done, still need more comps: %d",newComps.count);
+
                 for (Comparison * newComp in newComps)
                     [self.decision.comparisons insertObject:newComp atIndex:self.decision.numOfCompsDone];
                 

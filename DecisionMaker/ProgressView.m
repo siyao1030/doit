@@ -40,7 +40,7 @@
     
     //// Rectangle A Drawing
     UIBezierPath* restPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 320, 16)];
-    [pink setFill];
+    [darkPink setFill];
     [restPath fill];
     
     //// Rectangle A Drawing

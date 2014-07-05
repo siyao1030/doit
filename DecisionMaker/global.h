@@ -26,13 +26,13 @@
 
 #define bgColor [UIColor colorWithRed:247.0/255.0 green:243/255.0 blue:224/255.0 alpha:1]
 
-#define redTransparent [UIColor colorWithRed:234.0/255.0 green:86/255.0 blue:34/255.0 alpha:0.6]
+
 #define redOpaque [UIColor colorWithRed:234.0/255.0 green:86/255.0 blue:34/255.0 alpha:1]
 
 #define titleColor [UIColor colorWithRed:247.0/255.0 green:243/255.0 blue:224/255.0 alpha:1]
 
 #define pinkOpaque [UIColor colorWithRed:239.0/255.0 green:151/255.0 blue:112/255.0 alpha:1]
-#define pink [UIColor colorWithRed:226/255.0 green:146/255.0 blue:117/255.0 alpha:1]
+#define darkPink [UIColor colorWithRed:226/255.0 green:146/255.0 blue:117/255.0 alpha:1]
 #define lightPink [UIColor colorWithRed:252/255.0 green:201/255.0 blue:179/255.0 alpha:1]
 
 #define NormalScoreMode 1

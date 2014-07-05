@@ -67,6 +67,7 @@
     }
     
     self.decision.round = 1;
+    //NSLog(@"input order comps: %d", comparisons.count);
     return comparisons;
 
 }
@@ -79,6 +80,7 @@
     
     if (A.count == 0 && B.count == 0)
     {
+        //NSLog(@"in order comps, run out of both: %d", comparisons.count);
          return comparisons;
     }
     else if (A.count == 0)
@@ -92,6 +94,7 @@
             //[[B[i] comparedWith] addObject:factorA];
             [comparisons addObject:comp];
         }
+        //NSLog(@"in order comps, run out of a: %d", comparisons.count);
         return comparisons;
     }
     else if (B.count == 0)
@@ -104,6 +107,7 @@
             //[[A[i] comparedWith] addObject:factorB];
             [comparisons addObject:comp];
         }
+        //NSLog(@"in order comps, run out of b: %d", comparisons.count);
         return comparisons;
 
     }
@@ -123,8 +127,8 @@
         [B removeObjectAtIndex:0];
         [comparisons addObjectsFromArray:[self inOrderCompsGeneratorWithArrayA:A andArrayB:B]];
         
-        NSLog(@"%lu",(unsigned long)comparisons.count);
-
+        //NSLog(@"%lu",(unsigned long)comparisons.count);
+        //NSLog(@"in order comps, ummm: %d", comparisons.count);
         return comparisons;
  
     }
@@ -204,6 +208,7 @@
     
     
     self.decision.round = 3;
+   // NSLog(@"random: %d", comparisons.count);
     return comparisons;
     
     

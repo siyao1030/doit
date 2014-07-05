@@ -41,8 +41,8 @@
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat y = navBarHeight+statusBarHeight;
-    CGFloat height = self.view.frame.size.height-navBarHeight-statusBarHeight-tabBarHeight;
+    CGFloat y = 0;
+    CGFloat height = self.view.frame.size.height-statusBarHeight-tabBarHeight-navBarHeight;
     
     CGRect tableFrame = CGRectMake(x, y, width, height);
     

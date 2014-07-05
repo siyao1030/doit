@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D126124418403398002FFB83"
-               BuildableName = "Doit.app"
-               BlueprintName = "Doit"
-               ReferencedContainer = "container:Doit.xcodeproj">
+               BuildableName = "doit.app"
+               BlueprintName = "doit"
+               ReferencedContainer = "container:doit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D126126418403399002FFB83"
-               BuildableName = "DoitTests.xctest"
-               BlueprintName = "DoitTests"
-               ReferencedContainer = "container:Doit.xcodeproj">
+               BuildableName = "doitTests.xctest"
+               BlueprintName = "doitTests"
+               ReferencedContainer = "container:doit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D126124418403398002FFB83"
-            BuildableName = "Doit.app"
-            BlueprintName = "Doit"
-            ReferencedContainer = "container:Doit.xcodeproj">
+            BuildableName = "doit.app"
+            BlueprintName = "doit"
+            ReferencedContainer = "container:doit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D126124418403398002FFB83"
-            BuildableName = "Doit.app"
-            BlueprintName = "Doit"
-            ReferencedContainer = "container:Doit.xcodeproj">
+            BuildableName = "doit.app"
+            BlueprintName = "doit"
+            ReferencedContainer = "container:doit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D126124418403398002FFB83"
-            BuildableName = "Doit.app"
-            BlueprintName = "Doit"
-            ReferencedContainer = "container:Doit.xcodeproj">
+            BuildableName = "doit.app"
+            BlueprintName = "doit"
+            ReferencedContainer = "container:doit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
